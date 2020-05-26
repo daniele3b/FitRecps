@@ -26,7 +26,7 @@
                   <i class="fa fa-user fa-lg ml-3"> Profilo</i>
                 
                  <li>
-                  <i class="fa fa-users fa-lg ml-3"> Logout</i>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
                 </li>
             </ul>
      </div>

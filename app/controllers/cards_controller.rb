@@ -5,7 +5,7 @@ class CardsController < ApplicationController
     end
 
     def create
-
+        redirect_to recipes_url
     end
 
     def new

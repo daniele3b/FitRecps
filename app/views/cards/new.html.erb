@@ -15,12 +15,39 @@
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2 >Inserisci nuova scheda </h2>
-          
-          <%= form_with(url: "/cards/create", method: "post") do %>
-          <%= label_tag(:q, "Tipo:") %>
-          <%= text_field_tag(:q) %>
-          <%= submit_tag("Inserisci") %>
-          <% end %>
+        <%= form_with url: cards_path ,model: @card, local: true do |form| %>
+  
+
+        <div class="field">
+        <%= form.label :durata %>
+        <%= form.text_field :durata %>
+        </div>
+
+        <div class="field">
+        <%= form.label :zona %>
+        <%= form.text_field :zona %>
+        </div>
+
+        <div class="field">
+        <%= form.label :categoria %>
+        <%= form.select :categoria,  ['crossfit','body building','calisthenics','sala pesi'] %>
+        </div>
+
+        <div class="field">
+          <%= form.label :esercizi%>
+          <%= form.text_field :esercizi %>
+        </div>
+
+        <div class="field">
+          <%= form.label :tutorial %>
+          <%= form.text_area :tutorial %>
+        </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
           
 
           </div>

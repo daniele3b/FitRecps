@@ -82,12 +82,13 @@
       <th scope="col">Info</th>
     </tr>
   </thead>
-<% @data.each do |data| %>      
+<% @cards.each do |card| %>      
   <tr class="bg-light">
-    <td><%= data.categoria %></td> 
-    <td><%= data.zona %></td>  
-    <td><%= data.durata %></td>
-    <td>INFO </td>  
+    <td><%= card.categoria %></td> 
+    <td><%= card.zona %></td>  
+    <td><%= card.durata %></td>
+
+    <td><%= link_to 'Card', card_path(card)  %> </td>  
   </tr>
 <% end %>                       
 </table> 

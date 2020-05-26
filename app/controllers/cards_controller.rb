@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
     def index
-        @data = Card.all
+        @cards= Card.all
     end
 
     def create
@@ -10,10 +10,9 @@ class CardsController < ApplicationController
         @categoria=params[:categoria]
         @esercizi=params[:esercizi]
         @tutorial=params[:tutorial]
-
-        puts(@categoria)
-       @card= Card.create(:idf=>@durata,:categoria=>@categoria,:durata=>@durata,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
-       @card.save!
+       
+        @card= Card.create(:idf=>@durata,:categoria=>@categoria,:durata=>@durata,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
+        @card.save!
         redirect_to cards_url
     end
 
@@ -22,6 +21,8 @@ class CardsController < ApplicationController
     end 
 
     def show
+        @card=Card.find(params[:id])
+
     end
 
 end

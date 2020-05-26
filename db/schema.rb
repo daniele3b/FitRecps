@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_080003) do
+ActiveRecord::Schema.define(version: 2020_05_26_091441) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -19,10 +19,30 @@ ActiveRecord::Schema.define(version: 2020_05_26_080003) do
     t.string "zona"
     t.integer "energia"
     t.text "esercizi"
-    t.integer "user_id"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "nome"
+    t.string "tipo"
+    t.string "video_tutorial"
+    t.float "energia"
+    t.float "carboidrati"
+    t.float "proteine"
+    t.float "fibre"
+    t.float "sodio"
+    t.float "grassi"
+    t.text "ingredienti"
+    t.string "foto"
+    t.string "allergeni"
+    t.text "procedimento"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

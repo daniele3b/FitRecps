@@ -4,11 +4,5 @@ Rails.application.routes.draw do
   resources :cards
   resources :recipes
 
-
-    devise_scope :user do
-
-      root 'devise/sessions#new' 
-    end
    
-
 end

@@ -36,11 +36,9 @@
 </div>
 <!-- menu -->
 
-
-
 <div class="container-fluid">
-<div class="row  ">
-<div class="col p-0 d-none d-sm-block" style="float:left;">
+<div class="row ">
+<div class="col-2 p-0 d-none d-sm-block ">
 <div class="nav-side-menu">
     <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
     <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
@@ -67,29 +65,41 @@
             </ul>
      </div>
 </div>
+
 </div>
 <!-- fine menu-->
 
 <!-- dati-->
-<div class="col">
-<table>                         
-  <tr>                          
-    <th>field1</th>
-    <th>field2</th>
-  </tr>
+<div class="col p-0  ">
+<table class="table w-75 mr-3">                         
+ <thead class="thead-light">
+    <tr>
+      <th scope="col">Categoria</th>
+      <th scope="col">Zona del corpo</th>
+      <th scope="col">Durata</th>
+      <th scope="col">Info</th>
+    </tr>
+  </thead>
 <% @data.each do |data| %>      
-  <tr>
-    <td><%= data.durata %></td> 
+  <tr class="bg-light">
+    <td><%= data.categoria %></td> 
     <td><%= data.zona %></td>  
+    <td><%= data.durata %></td>
+    <td>INFO </td>  
   </tr>
 <% end %>                       
 </table> 
 
+<div class="row content-justidy-center">
+
  <button type="button" class="btn btn-outline-danger float-right"><%= link_to( "Aggiungi",new_card_path,method: :get)%></button> 
-</div>
+
+ </div>
+
+</div> <!-- chiudo col-->
  
-</div>
-</div>
+</div> <!-- chiude row-->
+</div><!-- chiude cont-->
 <!-- fine menu-->
 
 

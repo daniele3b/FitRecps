@@ -80,7 +80,7 @@
   }
   .nav-side-menu ul .sub-menu li.active,
   .nav-side-menu li .sub-menu li.active {
-    color: #d19b3d;
+    color: #ffffff;
   }
   .nav-side-menu ul .sub-menu li.active a,
   .nav-side-menu li .sub-menu li.active a {
@@ -114,7 +114,7 @@
   }
   .nav-side-menu li a {
     text-decoration: none;
-    color: #e1ffff;
+    color: #ffffff;
   }
   .nav-side-menu li a i {
     padding-left: 10px;

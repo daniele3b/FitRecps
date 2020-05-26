@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  tipo: MyString
+  video_tutorial: MyString
+  energia: MyString
+  carboidrati: MyString
+  proteine: MyString
+  fibre: MyString
+  sodio: MyString
+  grassi: MyString
+  ingredienti: MyString
+  foto: MyString
+  allergeni: MyString
+  procedimento: MyString
+  user: one
+
+two:
+  nome: MyString
+  tipo: MyString
+  video_tutorial: MyString
+  energia: MyString
+  carboidrati: MyString
+  proteine: MyString
+  fibre: MyString
+  sodio: MyString
+  grassi: MyString
+  ingredienti: MyString
+  foto: MyString
+  allergeni: MyString
+  procedimento: MyString
+  user: two

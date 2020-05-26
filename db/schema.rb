@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_195740) do
     t.float "sodio"
     t.float "grassi"
     t.text "ingredienti"
-    t.string "foto"
     t.text "procedimento"
     t.string "user_id"
     t.datetime "created_at", null: false

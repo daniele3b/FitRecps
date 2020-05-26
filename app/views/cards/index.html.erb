@@ -70,10 +70,12 @@
 <!-- fine menu-->
 
 <!-- dati-->
-<div class="col p-0  ">
+<div class="col p-0"  >
 <center>
 <h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE </h4>
-<table class="table w-75  mt-2" >                         
+<div class="mb-2" style="height:500px;overflow:auto;">
+
+<table class="table w-75  mt-2 "   >                         
  <thead class="thead-light">
     <tr>
       <th scope="col">Categoria</th>
@@ -82,17 +84,19 @@
       <th scope="col"></th>
     </tr>
   </thead>
-<% @cards.each do |card| %>      
-  <tr class="bg-light">
+  <tbody  >
+    <% @cards.each do |card| %>      
+    <tr class="bg-light">
     <td><%= card.categoria %></td> 
     <td><%= card.zona %></td>  
     <td><%= card.durata %></td>
 
     <td><%= link_to 'Info', card_path(card)  %> </td>  
-  </tr>
-<% end %>                       
+    </tr>
+    <% end %>  
+</tbody>                     
 </table> 
-
+</div>
 <%= link_to( "Aggiungi",new_card_path,method: :get,:style => "width:80px;padding:5px; background-color:red;color:white;",:class=>"rounded ")   %></button>
 </center>
 

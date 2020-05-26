@@ -71,11 +71,12 @@
 
 <!-- dati-->
 <div class="col p-0  ">
-<table class="table w-75 mr-3">                         
+<center>
+<table class="table w-75" >                         
  <thead class="thead-light">
     <tr>
       <th scope="col">Categoria</th>
-      <th scope="col">Zona del corpo</th>
+      <th scope="col">Zona</th>
       <th scope="col">Durata</th>
       <th scope="col">Info</th>
     </tr>
@@ -89,12 +90,8 @@
   </tr>
 <% end %>                       
 </table> 
-
-<div class="row content-justidy-center">
-
- <button type="button" class="btn btn-outline-danger float-right"><%= link_to( "Aggiungi",new_card_path,method: :get)%></button> 
-
- </div>
+</center>
+<button type="button" class="btn btn-outline-danger float-right"><%= link_to( "Aggiungi",new_card_path,method: :get)%></button> 
 
 </div> <!-- chiudo col-->
  

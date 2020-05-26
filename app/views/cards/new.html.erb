@@ -16,38 +16,69 @@
         <div class="card card-signin my-5 " style="border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2  >Inserisci nuova scheda </h2>
+        <div class="container">
         <%= form_with url: cards_path ,model: @card, local: true do |form| %>
   
 
-        <div class="field">
+        <div class="row">
+        <div class="col">
         <%= form.label :durata %>
+        </div>
+        <div class="col">
         <%= form.text_field :durata %>
         </div>
+        </div>
 
-        <div class="field">
+        <div class="row">
+        <div class="col">
         <%= form.label :zona %>
+        </div>
+        <div class="col">
         <%= form.text_field :zona %>
         </div>
+        </div>
 
-        <div class="field">
-        <%= form.label :categoria %>
+        <div class="row">
+        <div class="col">
+        <%= form.label :categoria%>
+        </div>
+        <div class="col">
         <%= form.select :categoria,  ['crossfit','body building','calisthenics','sala pesi'] %>
         </div>
-
-        <div class="field">
-          <%= form.label :esercizi%>
-          <%= form.text_area :esercizi %>
         </div>
 
-        <div class="field">
+        <div class="row">
+        <div class="col">
+          <%= form.label :esercizi%>
+        </div>
+        <div class="col">
+          <%= form.text_area :esercizi %>
+        </div>
+        </div>
+
+         <div class="row">
+         <div class="col">
+          <%= form.label :energia%>
+          </div>
+          <div class="col">
+          <%= form.text_field :energia %>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="col">
           <%= form.label :tutorial %>
-          <%= form.text_area :tutorial %>
+        </div>
+        <div class="col">
+          <%= form.text_field :tutorial %>
+        </div>
         </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
 
           
 

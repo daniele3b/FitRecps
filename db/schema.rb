@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_144817) do
+ActiveRecord::Schema.define(version: 2020_05_26_170507) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -37,12 +37,25 @@ ActiveRecord::Schema.define(version: 2020_05_26_144817) do
     t.float "sodio"
     t.float "grassi"
     t.text "ingredienti"
-    t.string "allergeni"
     t.text "procedimento"
     t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "codice"
+    t.boolean "arachidi_e_derivati", default: false
+    t.boolean "frutta_a_guscio", default: false
+    t.boolean "latte_e_derivati", default: false
+    t.boolean "molluschi", default: false
+    t.boolean "pesce", default: false
+    t.boolean "sesamo", default: false
+    t.boolean "soia", default: false
+    t.boolean "crostacei", default: false
+    t.boolean "glutine", default: false
+    t.boolean "lupini", default: false
+    t.boolean "senape", default: false
+    t.boolean "sedano", default: false
+    t.boolean "anidride_solforosa_e_solfiti", default: false
+    t.boolean "uova_e_derivati", default: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

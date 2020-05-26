@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_170507) do
+ActiveRecord::Schema.define(version: 2020_05_26_195740) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_170507) do
     t.float "sodio"
     t.float "grassi"
     t.text "ingredienti"
+    t.string "foto"
     t.text "procedimento"
     t.string "user_id"
     t.datetime "created_at", null: false
@@ -69,6 +70,11 @@ ActiveRecord::Schema.define(version: 2020_05_26_170507) do
     t.datetime "updated_at", null: false
     t.string "provide"
     t.string "uid"
+    t.string "nome"
+    t.string "cognome"
+    t.string "luogoNascita"
+    t.string "dataNascita"
+    t.string "sesso"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

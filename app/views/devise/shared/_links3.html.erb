@@ -1,0 +1,12 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Accedi", new_session_path(resource_name), id:"link1" %><br />
+<% end %>
+<style>
+#link1{
+    color:red;
+}
+#link1:hover{
+    color:black;
+    text-decoration:none;
+}
+</style>

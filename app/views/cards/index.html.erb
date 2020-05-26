@@ -72,7 +72,8 @@
 <!-- dati-->
 <div class="col p-0  ">
 <center>
-<table class="table w-75" >                         
+<h4 class="mb-2 mt-2"style="color:black;"> LISTA SCHEDE </h4>
+<table class="table w-75  mt-2" >                         
  <thead class="thead-light">
     <tr>
       <th scope="col">Categoria</th>
@@ -90,9 +91,13 @@
   </tr>
 <% end %>                       
 </table> 
-</center>
-<button type="button" class="btn btn-outline-danger float-right"><%= link_to( "Aggiungi",new_card_path,method: :get)%></button> 
 
+<%= link_to( "Aggiungi",new_card_path,method: :get,:style => "width:80px;padding:5px; background-color:red;color:white;",:class=>"rounded ")   %></button>
+</center>
+
+ 
+
+</div>
 </div> <!-- chiudo col-->
  
 </div> <!-- chiude row-->

@@ -79,7 +79,7 @@
       <th scope="col">Categoria</th>
       <th scope="col">Zona</th>
       <th scope="col">Durata</th>
-      <th scope="col">Info</th>
+      <th scope="col"></th>
     </tr>
   </thead>
 <% @cards.each do |card| %>      
@@ -88,7 +88,7 @@
     <td><%= card.zona %></td>  
     <td><%= card.durata %></td>
 
-    <td><%= link_to 'Card', card_path(card)  %> </td>  
+    <td><%= link_to 'Info', card_path(card)  %> </td>  
   </tr>
 <% end %>                       
 </table> 

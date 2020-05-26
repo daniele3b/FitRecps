@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idf: MyString
+  durata: MyString
+  categoria: MyString
+  zona: MyString
+  energia: 1
+  esercizi: MyText
+  user: one
+
+two:
+  idf: MyString
+  durata: MyString
+  categoria: MyString
+  zona: MyString
+  energia: 1
+  esercizi: MyText
+  user: two

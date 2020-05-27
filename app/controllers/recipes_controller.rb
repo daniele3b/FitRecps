@@ -3,6 +3,13 @@ class RecipesController < ApplicationController
         @recipes = Recipe.all
     end
 
+    def destroy
+        @recipe=Recipe.find(params[:id])
+        @recipe.destroy
+
+        redirect_to profiles_myrecipes_url
+    end
+
     def create
         
         @nome = params[:Nome]
@@ -59,29 +66,56 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
-        #if recipe.arachidi_e_derivati == 1 recipe.arachidi_e_derivati = "SI'"
-        #else recipe.arachidi_e_derivati = "NO"
-        #end
-
-        #if (@recipe.frutta_a_guscio == 1) @recipe.frutta_a_guscio = "SI'"
-        #else @recipe.frutta_a_guscio = "NO"
-        #end
-
-        #if (@recipe.latte_e_derivati == 1) @recipe.latte_e_derivati = "SI'"
-        #else @recipe.latte_e_derivati = "NO"
-        #end
-
-        #if (@recipe.molluschi == 1) @recipe.molluschi = "SI'"
-        #else @recipe.molluschi = "NO"
-        #end
-
-        #if (@recipe.pesce == 1) @recipe.pesce = "SI'"
-        #else @recipe.pesce = "NO"
-        #end
-
-        #if @recipe.sesamo == 1 @recipe.sesamo = "SI'"
-        #else @recipe.sesamo = "NO"
-        #end
-
     end
+
+    def edit
+        @recipe=Recipe.find(params[:id])
+
+        puts(@recipe.procedimento) 
+    end
+
+    def update
+
+        @tipo = params[:Tipo]
+        @foto = params[:Immagine]
+        
+        @arachidi_e_derivati = params[:Arachidi_e_derivati]
+        @frutta_a_guscio = params[:Frutta_a_guscio]
+        @latte_e_derivati = params[:Latte_e_derivati]
+        @molluschi = params[:Molluschi]
+        @pesce = params[:Pesce]
+        @sesamo = params[:Sesamo]
+        @soia = params[:Soia]
+        @crostacei = params[:Crostacei]
+        @glutine = params[:Glutine]
+        @lupini = params[:Lupini]
+        @senape = params[:Senape]
+        @sedano = params[:Sedano]
+        @anidride_solforosa_e_solfiti = params[:Anidride_solforosa_e_solfiti]
+        @uova_e_derivati = params[:Uova_e_derivati]
+        
+        @ingredienti = params[:Ingredienti]
+        
+        @procedimento = params[:Procedimento]
+       
+        @energia = params[:Energia]
+        @carboidrati = params[:Carboidrati]
+        @grassi = params[:Grassi]
+        @proteine = params[:Proteine]
+        @fibre = params[:Fibre]
+        @sodio = params[:Sodio] 
+        
+
+        @video_tutorial = params[:Tutorial] 
+
+        @recipe=Recipe.find(params[:id])
+
+        @recipe.update_attributes!(params[:recipe].permit(:tipo, :foto, :arachidi_e_derivati, :frutta_a_guscio, :latte_e_derivati,
+        :molluschi, :pesce, :sesamo, :soia, :crostacei, :glutine, :lupini, :senape, :sedano, :anidride_solforosa_e_solfiti,
+        :uova_e_derivati, :ingredienti, :procedimento, :energia, :carboidrati, :grassi, :proteine, :fibre, :sodio,
+        :video_tutorial))
+
+        redirect_to profiles_myrecipes_url
+    end
+
 end

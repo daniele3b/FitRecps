@@ -17,24 +17,24 @@
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2>Modifica ricetta </h2>
-        <%= form_with url: recipes_path ,model: @recipe, local: true do |form| %>
+        <%= form_with url: recipe_url(@recipe) ,model: @recipe, method: :patch, local: true do |form| %>
   
         <!--  NOME  -->
 
         <div class="field">
-            <%= form.label :Nome %>
-            <%= form.text_field :Nome %>
+            <%= form.label :nome %>
+            <%= form.text_field :nome %>
         </div>
 
         <!--  INSERISCI IMMAGINE  -->
 
         <div class="row">
             <div class="col">
-                <%= form.label :Immagine %>
+                <%= form.label :immagine %>
             </div>
             
             <div class="col">
-                <%= form.file_field :Immagine %>
+                <%= form.file_field :immagine %>
             </div>
         
         </div>
@@ -42,8 +42,8 @@
         <!--  TIPO  -->
 
         <div class="field">
-            <%= form.label :Tipo %>
-            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
+            <%= form.label :tipo %>
+            <%= form.select :tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
         </div>
 
         <!--  ALLERGENI  -->
@@ -53,127 +53,127 @@
     
 
         <div class="field mt-2">
-            <%= form.check_box :Arachidi_e_derivati %>
-            <%= form.label :Arachidi_e_derivati %>
+            <%= form.check_box :arachidi_e_derivati %>
+            <%= form.label :arachidi_e_derivati %>
         </div>
 
         <div class="field mr-4">
-            <%= form.check_box :Frutta_a_guscio %>
-            <%= form.label :Frutta_a_guscio %>
+            <%= form.check_box :frutta_a_guscio %>
+            <%= form.label :frutta_a_guscio %>
         </div>
 
         <div class="field mr-4">
-            <%= form.check_box :Latte_e_derivati %>
-            <%= form.label :Latte_e_derivati %>
+            <%= form.check_box :latte_e_derivati %>
+            <%= form.label :latte_e_derivati %>
         </div>
 
         <div class="field" style="margin-right:60px">
-            <%= form.check_box :Molluschi %>
-            <%= form.label :Molluschi %>
+            <%= form.check_box :molluschi %>
+            <%= form.label :molluschi %>
         </div>
 
         <div class="field" style="margin-right:88px">
-            <%= form.check_box :Pesce %>
-            <%= form.label :Pesce %>
+            <%= form.check_box :pesce %>
+            <%= form.label :pesce %>
         </div>
 
         <div class="field" style="margin-right:72px">
-            <%= form.check_box :Sesamo %>
-            <%= form.label :Sesamo %>
+            <%= form.check_box :sesamo %>
+            <%= form.label :sesamo %>
         </div>
 
         <div class="field" style="margin-right:97px">
-            <%= form.check_box :Soia %>
-            <%= form.label :Soia %>
+            <%= form.check_box :soia %>
+            <%= form.label :soia %>
         </div>
 
         <div class="field" style="margin-right:62px">
-            <%= form.check_box :Crostacei %>
-            <%= form.label :Crostacei %>
+            <%= form.check_box :crostacei %>
+            <%= form.label :crostacei %>
         </div>
 
         <div class="field" style="margin-right:76px">
-            <%= form.check_box :Glutine %>
-            <%= form.label :Glutine %>
+            <%= form.check_box :glutine %>
+            <%= form.label :glutine %>
         </div>
 
         <div class="field" style="margin-right:85px">
-            <%= form.check_box :Lupini %>
-            <%= form.label :Lupini %>
+            <%= form.check_box :lupini %>
+            <%= form.label :lupini %>
         </div>
 
         <div class="field" style="margin-right:75px">
-            <%= form.check_box :Senape %>
-            <%= form.label :Senape %>
+            <%= form.check_box :senape %>
+            <%= form.label :senape %>
         </div>
 
         <div class="field" style="margin-right:75px">
-            <%= form.check_box :Sedano %>
-            <%= form.label :Sedano %>
+            <%= form.check_box :sedano %>
+            <%= form.label :sedano %>
         </div>
 
         <div class="field" style="margin-left:57px">
-            <%= form.check_box :Anidride_solforosa_e_solfiti %>
-            <%= form.label :Anidride_solforosa_e_solfiti %>
+            <%= form.check_box :anidride_solforosa_e_solfiti %>
+            <%= form.label :anidride_solforosa_e_solfiti %>
         </div>
 
         <div class="field" style="margin-right:21px">
-            <%= form.check_box :Uova_e_derivati %>
-            <%= form.label :Uova_e_derivati %>
+            <%= form.check_box :uova_e_derivati %>
+            <%= form.label :uova_e_derivati %>
         </div>
 
 
         <!--  INGREDIENTI  -->
 
         <div class="field mt-2">
-            <%= form.label :Ingredienti %>
-            <%= form.text_area :Ingredienti %>
+            <%= form.label :ingredienti %>
+            <%= form.text_area :ingredienti %>
         </div>
 
         <!--  PROCEDIMENTO  -->
 
         <div class="field" style="margin-right:21px">
-            <%= form.label :Procedimento %>
-            <%= form.text_area :Procedimento %>
+            <%= form.label :procedimento %>
+            <%= form.text_area :procedimento %>
         </div>
 
         <!--  MACRONUTRIENTI  -->
 
         <div class="field" style="margin-left:40px">
-            <%= form.label :Energia %>
-            <%= form.number_field :Energia %>
+            <%= form.label :energia %>
+            <%= form.number_field :energia %>
         </div>
 
         <div class="field mt-1" style="margin-left:13px">
-            <%= form.label :Carboidrati %>
-            <%= form.number_field :Carboidrati %>
+            <%= form.label :carboidrati %>
+            <%= form.number_field :carboidrati %>
         </div>
 
         <div class="field mt-1" style="margin-left:50px">
-            <%= form.label :Grassi %>
-            <%= form.number_field :Grassi %>
+            <%= form.label :grassi %>
+            <%= form.number_field :grassi %>
         </div>
 
         <div class="field mt-1" style="margin-left:33px">
-            <%= form.label :Proteine %>
-            <%= form.number_field :Proteine %>
+            <%= form.label :proteine %>
+            <%= form.number_field :proteine %>
         </div>
 
         <div class="field mt-1" style="margin-left:58px">
-            <%= form.label :Fibre %>
-            <%= form.number_field :Fibre %>
+            <%= form.label :fibre %>
+            <%= form.number_field :fibre %>
         </div>
 
         <div class="field mt-1" style="margin-left:53px">
-            <%= form.label :Sodio %>
-            <%= form.number_field :Sodio %>
+            <%= form.label :sodio %>
+            <%= form.number_field :sodio %>
         </div>
 
         <!--  LINK VIDEO TUTORIAL  -->
 
         <div class="field mt-1" style="margin-left:39px">
-            <%= form.label :Tutorial %>
-            <%= form.text_field :Tutorial %>
+            <%= form.label :video_tutorial %>
+            <%= form.text_field :video_tutorial %> 
         </div>
 
         <!--  BOTTONE SAVE  -->

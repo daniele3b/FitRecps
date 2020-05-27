@@ -137,4 +137,13 @@ class CardsController < ApplicationController
     def visualizzacard
         @card=Card.find(params[:id])
     end
+
+
+    def ordina
+        @cards=Card.order(:energia)
+    end
+
+    def ordinadesc
+        @cards=Card.order(energia: :desc)
+    end
 end

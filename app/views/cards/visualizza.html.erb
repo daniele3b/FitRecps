@@ -6,7 +6,6 @@
 <body style="background-color:#333;">
 
 
-
 <div class="nav-side-menu d-block d-sm-none">
     <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
     <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
@@ -16,7 +15,7 @@
                   <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
                 </li>
   
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <li data-toggle="collapse"  class="collapsed">
                   <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
                 </li>  
            
@@ -30,7 +29,7 @@
                  
                 <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
                   <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
-                  <li style="list-style: none;">Le mie ricette</li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
                   <li style="list-style: none;">Informazioni</li>
                 </ul>
                 </li>
@@ -57,7 +56,7 @@
                   <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
                 </li>
   
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <li data-toggle="collapse"  class="collapsed">
                   <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
                 </li>  
            
@@ -71,7 +70,7 @@
                  
                 <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
                   <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
-                  <li style="list-style: none;">Le mie ricette</li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
                   <li style="list-style: none;">Informazioni</li>
                 </ul>
                 </li>

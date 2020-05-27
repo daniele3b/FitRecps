@@ -39,7 +39,13 @@ class CardsController < ApplicationController
     end
 
     def show
+        
         @card=Card.find(params[:id])
+       @val=@card.interazioni
+       @val=@val+1
+       @card.interazioni=@val
+       @card.save!
+
 
     end
 
@@ -136,6 +142,10 @@ class CardsController < ApplicationController
 
     def visualizzacard
         @card=Card.find(params[:id])
+        @val=@card.interazioni
+        @val=@val+1
+        @card.interazioni=@val
+        @card.save!
     end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_064649) do
+ActiveRecord::Schema.define(version: 2020_05_27_162126) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_064649) do
     t.datetime "updated_at", null: false
     t.string "tutorial"
     t.string "spiegazione"
+    t.integer "interazioni"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 

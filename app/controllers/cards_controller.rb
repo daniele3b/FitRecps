@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 
       
        
-        @card= Card.create(:idf=>@chiave,:spiegazione=>params[:path],:categoria=>@categoria,:durata=>@durata,:energia=>@energia,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
+        @card= Card.create(:idf=>@chiave,:interazioni=>0,:spiegazione=>params[:path],:categoria=>@categoria,:durata=>@durata,:energia=>@energia,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
         @card.save!
       
         redirect_to cards_url

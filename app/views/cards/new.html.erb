@@ -18,7 +18,15 @@
           <h2  >Inserisci nuova scheda </h2>
         <div class="container">
         <%= form_with url: cards_path ,model: @card, local: true do |form| %>
-  
+
+        <div class="row">
+        <div class="col">
+        <%= form.label :path %>
+        </div>
+         <div class="col">
+        <%= form.file_field :path %>
+        </div>
+        </div>
 
         <div class="row">
         <div class="col">

@@ -12,9 +12,12 @@ class CardsController < ApplicationController
         @tutorial=params[:tutorial]
         @energia=params[:energia]
         @chiave=SecureRandom.urlsafe_base64(50, false)
+
+      
        
-        @card= Card.create(:idf=>@chiave,:categoria=>@categoria,:durata=>@durata,:energia=>@energia,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
+        @card= Card.create(:idf=>@chiave,:spiegazione=>params[:path],:categoria=>@categoria,:durata=>@durata,:energia=>@energia,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
         @card.save!
+        puts(@card)
         redirect_to cards_url
     end
 

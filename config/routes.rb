@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   
   resources :recipes
 
+  resources :reviews
+
   get 'finestra/:id', :to=> 'cards#visualizzacard'
   get 'profiles/mycards', :to => 'profiles#mycards'
   get 'profiles/myrecipes', :to => 'profiles#myrecipes'

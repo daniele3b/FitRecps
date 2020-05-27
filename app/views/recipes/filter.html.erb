@@ -22,47 +22,40 @@
         <!--  TIPO  -->
 
         <div class="field">
-            <%= form.label :Tipo %>
-            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
+            <%= form.label :tipo %>
+            <%= form.select :tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
         </div>
 
         <!--  MACRONUTRIENTI  -->
 
-        <div class="field" style="margin-left:40px">
-            <%= form.label :Energia %>
-            <%= form.number_field :Energia %>
+        <div class="field mt-1" style="margin-left:13px">
+            <%= form.label :carboidrati_min %>
+            <%= form.number_field :carboidrati_min %>
         </div>
 
         <div class="field mt-1" style="margin-left:13px">
-            <%= form.label :Carboidrati %>
-            <%= form.number_field :Carboidrati %>
+            <%= form.label :carboidrati_max %>
+            <%= form.number_field :carboidrati_max %>
         </div>
 
         <div class="field mt-1" style="margin-left:50px">
-            <%= form.label :Grassi %>
-            <%= form.number_field :Grassi %>
+            <%= form.label :grassi_min %>
+            <%= form.number_field :grassi_min %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:50px">
+            <%= form.label :grassi_max %>
+            <%= form.number_field :grassi_max %>
         </div>
 
         <div class="field mt-1" style="margin-left:33px">
-            <%= form.label :Proteine %>
-            <%= form.number_field :Proteine %>
+            <%= form.label :proteine_min %>
+            <%= form.number_field :proteine_min %>
         </div>
 
-        <div class="field mt-1" style="margin-left:58px">
-            <%= form.label :Fibre %>
-            <%= form.number_field :Fibre %>
-        </div>
-
-        <div class="field mt-1" style="margin-left:53px">
-            <%= form.label :Sodio %>
-            <%= form.number_field :Sodio %>
-        </div>
-
-        <!--  LINK VIDEO TUTORIAL  -->
-
-        <div class="field mt-1" style="margin-left:39px">
-            <%= form.label :Tutorial %>
-            <%= form.text_field :Tutorial %>
+        <div class="field mt-1" style="margin-left:33px">
+            <%= form.label :proteine_max %>
+            <%= form.number_field :proteine_max %>
         </div>
 
 

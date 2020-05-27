@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_173642) do
+ActiveRecord::Schema.define(version: 2020_05_27_193231) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2020_05_27_173642) do
     t.string "anidride_solforosa_e_solfiti", default: "0"
     t.string "uova_e_derivati", default: "0"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.decimal "valore"
+    t.string "card_id"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_reviews_on_card_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

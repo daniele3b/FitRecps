@@ -4,8 +4,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body style="background-color:#333;">
-<!-- menu -->
-<div class="nav-side-menu">
+
+
+
+<div class="nav-side-menu d-block d-sm-none">
     <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
     <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
@@ -15,7 +17,7 @@
                 </li>
   
                 <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <i class="fa fa-globe fa-lg ml-3">Ricette </i> 
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
                 </li>  
            
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
@@ -26,11 +28,87 @@
                   <i class="fa fa-user fa-lg ml-3"> Profilo</i>
                 
                  <li>
-                  <i class="fa fa-users fa-lg ml-3"> Logout</i>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
                 </li>
             </ul>
      </div>
 </div>
+</div>
+<!-- menu -->
+
+<div class="container-fluid">
+<div class="row ">
+<div class="col-2 p-0 d-none d-sm-block ">
+<div class="nav-side-menu">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                  <i class="fa fa-user fa-lg ml-3"> Profilo</i>
+                
+                 <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+
+</div>
+<!-- fine menu-->
+
+<!-- dati-->
+<div class="col p-0"  >
+<center>
+<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE </h4>
+<div class="mb-2" style="height:500px;overflow:auto;">
+
+<table class="table w-75  mt-2 "   >                         
+ <thead class="thead-light" style="padding:0;
+  font-size: 15px;
+  position: sticky; top: 0;
+  overflow-y: auto; 
+  border:  1 grey;">
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Tipo</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody  >
+    <% @recipes.each do |recipe| %>      
+    <tr class="bg-light">
+    <td><%= recipe.nome %></td> 
+    <td><%= recipe.tipo %></td>  
+
+    <td><%= link_to 'Info', recipe_path(recipe)  %> </td>  
+    </tr>
+    <% end %>  
+</tbody>                     
+</table> 
+</div>
+<%= link_to( "Aggiungi",new_recipe_path,method: :get,:style => "width:80px;padding:5px; background-color:red;color:white;",:class=>"rounded ")   %></button>
+</center>
+
+ 
+
+</div>
+</div> <!-- chiudo col-->
+ 
+</div> <!-- chiude row-->
+</div><!-- chiude cont-->
 <!-- fine menu-->
 
 

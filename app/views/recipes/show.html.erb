@@ -1,0 +1,123 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body style="background-color:#333;">
+<div class="navbar navbar-expand-lg-md-sm " style="background-color:#23282e;">
+ 
+    <h1 style="color:#bd000d;">FitRecps</h1>
+   
+</div>
+
+<div class="container">
+    <div class="row">
+    <span class="text-white"><%= link_to "< Torna alle schede", recipes_path %></span>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 " style="border-color:#bd000d;">
+          <div class="card-body pb-5" style="text-align:center;">
+          
+          <h2 >Dettagli ricetta</h2> 
+          <hr>
+
+
+
+            <div class="row mt-3">
+                <div class="col">
+                    <b>NOME</b>: <br><%= @recipe.nome %>
+                </div>
+
+                <div class="col mr-3">
+                    <%= link_to @recipe.video_tutorial do %>
+                        <%= image_tag "yt.png", class: "float-right",style:"width:40px;" %>
+                    <% end %>
+                </div>
+
+                <div class="col">
+                    <b>VALUTAZIONE</b>:
+                </div>
+            
+            </div>
+
+            
+
+      
+                    <b>IMMAGINE</b>
+                
+            <div class="row mt-2">
+                <div class="col">
+                    <b>INGREDIENTI</b>: <br><%= @recipe.ingredienti %>
+                </div>
+            </div>
+            
+            <div class="row mt-2">
+
+                <div class="col">
+                    <b>ALLERGENI</b>: <br>
+
+                    Arachidi e derivati: <%= @recipe.arachidi_e_derivati %><br>
+                    Frutta a guscio: <%= @recipe.frutta_a_guscio %><br>
+                    Latte e derivati: <%= @recipe.latte_e_derivati %><br>
+                    Molluschi: <%= @recipe.molluschi %><br>
+                    Pesce: <%= @recipe.pesce %><br>
+                    Sesamo: <%= @recipe.sesamo %><br>
+                    Soia: <%= @recipe.soia %><br>
+                    Crostacei: <%= @recipe.crostacei %><br>
+                    Glutine: <%= @recipe.glutine %><br>
+                    Lupini: <%= @recipe.lupini %><br>
+                    Senape: <%= @recipe.senape %><br>
+                    Sadano: <%= @recipe.sedano %><br>
+                    Anidride solforosa e solfiti: <%= @recipe.anidride_solforosa_e_solfiti %><br>
+                    Uova e derivati: <%= @recipe.uova_e_derivati %><br>
+                    
+
+                    
+                </div>
+
+            </div>
+
+            <div class="row mt-2">
+                <div class="col">
+                    <b>TIPO</b>: <%= @recipe.tipo %><br>
+                </div>
+                
+            </div>
+
+            <div class="row mt-2">
+      
+
+                <div class="col">
+                    <b>MACRONUTRIENTI</b><br>
+
+                    Energia : <%= @recipe.energia %><br>
+                    Carboidrati : <%= @recipe.carboidrati %><br>
+                    Grassi : <%= @recipe.grassi %><br>
+                    Proteine : <%= @recipe.proteine %><br>
+                    Fibre : <%= @recipe.fibre %><br>
+                    Sodio : <%= @recipe.sodio %><br>
+                </div>
+                
+            </div>
+
+            <div class="row mt-2">
+              <div class="col">
+                  <b>PROCEDIMENTO</b>: <br><%= @recipe.procedimento %>
+              </div>
+                
+            </div>
+
+                
+
+
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body >
+
+</html>

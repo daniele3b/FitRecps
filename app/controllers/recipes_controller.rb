@@ -34,10 +34,13 @@ class RecipesController < ApplicationController
         @proteine = params[:Proteine]
         @fibre = params[:Fibre]
         @sodio = params[:Sodio]
+        
 
         @video_tutorial = params[:Tutorial]
         
-        @recipe = Recipe.create(:codice=>'0', :nome=>@nome, :tipo=>@tipo, :arachidi_e_derivati=>@arachidi_e_derivati,
+        @codice = SecureRandom.urlsafe_base64(50, false)
+
+        @recipe = Recipe.create(:codice=>@codice, :nome=>@nome, :tipo=>@tipo, :arachidi_e_derivati=>@arachidi_e_derivati,
             :frutta_a_guscio=>@frutta_a_guscio, :latte_e_derivati=>@latte_e_derivati, :molluschi=>@molluschi,
             :pesce=>@pesce, :sesamo=>@sesamo, :soia=>@soia, :crostacei=>@crostacei, :glutine=>@glutine,
             :lupini=>@lupini, :senape=>@senape, :sedano=>@sedano,
@@ -56,6 +59,29 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
+        #if recipe.arachidi_e_derivati == 1 recipe.arachidi_e_derivati = "SI'"
+        #else recipe.arachidi_e_derivati = "NO"
+        #end
+
+        #if (@recipe.frutta_a_guscio == 1) @recipe.frutta_a_guscio = "SI'"
+        #else @recipe.frutta_a_guscio = "NO"
+        #end
+
+        #if (@recipe.latte_e_derivati == 1) @recipe.latte_e_derivati = "SI'"
+        #else @recipe.latte_e_derivati = "NO"
+        #end
+
+        #if (@recipe.molluschi == 1) @recipe.molluschi = "SI'"
+        #else @recipe.molluschi = "NO"
+        #end
+
+        #if (@recipe.pesce == 1) @recipe.pesce = "SI'"
+        #else @recipe.pesce = "NO"
+        #end
+
+        #if @recipe.sesamo == 1 @recipe.sesamo = "SI'"
+        #else @recipe.sesamo = "NO"
+        #end
 
     end
 end

@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   get 'cards/filter/scelta', :to => 'cards#filter'
 
 
+  get 'cards/filter/scelta', :to => 'cards#filter'
+
+
+  get 'cards/ordina/energia', :to=> 'cards#ordina'
+
+  get 'cards/ordina/energia/desc', :to=> 'cards#ordinadesc'
+
+
   get 'cards/filter/scelta/visualizza', :to => 'cards#visualizza'
 
   

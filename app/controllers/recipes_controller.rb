@@ -76,41 +76,41 @@ class RecipesController < ApplicationController
 
     def update
 
-        @tipo = params[:Tipo]
-        @foto = params[:Immagine]
+        @tipo = params[:tipo]
+        @foto = params[:immagine]
         
-        @arachidi_e_derivati = params[:Arachidi_e_derivati]
-        @frutta_a_guscio = params[:Frutta_a_guscio]
-        @latte_e_derivati = params[:Latte_e_derivati]
-        @molluschi = params[:Molluschi]
-        @pesce = params[:Pesce]
-        @sesamo = params[:Sesamo]
-        @soia = params[:Soia]
-        @crostacei = params[:Crostacei]
-        @glutine = params[:Glutine]
-        @lupini = params[:Lupini]
-        @senape = params[:Senape]
-        @sedano = params[:Sedano]
-        @anidride_solforosa_e_solfiti = params[:Anidride_solforosa_e_solfiti]
-        @uova_e_derivati = params[:Uova_e_derivati]
+        @arachidi_e_derivati = params[:arachidi_e_derivati]
+        @frutta_a_guscio = params[:frutta_a_guscio]
+        @latte_e_derivati = params[:latte_e_derivati]
+        @molluschi = params[:molluschi]
+        @pesce = params[:pesce]
+        @sesamo = params[:sesamo]
+        @soia = params[:soia]
+        @crostacei = params[:crostacei]
+        @glutine = params[:glutine]
+        @lupini = params[:lupini]
+        @senape = params[:senape]
+        @sedano = params[:sedano]
+        @anidride_solforosa_e_solfiti = params[:anidride_solforosa_e_solfiti]
+        @uova_e_derivati = params[:uova_e_derivati]
         
-        @ingredienti = params[:Ingredienti]
+        @ingredienti = params[:ingredienti]
         
-        @procedimento = params[:Procedimento]
+        @procedimento = params[:procedimento]
        
-        @energia = params[:Energia]
-        @carboidrati = params[:Carboidrati]
-        @grassi = params[:Grassi]
-        @proteine = params[:Proteine]
-        @fibre = params[:Fibre]
-        @sodio = params[:Sodio] 
+        @energia = params[:energia]
+        @carboidrati = params[:carboidrati]
+        @grassi = params[:grassi]
+        @proteine = params[:proteine]
+        @fibre = params[:fibre]
+        @sodio = params[:sodio] 
         
 
-        @video_tutorial = params[:Tutorial] 
+        @video_tutorial = params[:videp_tutorial] 
 
         @recipe=Recipe.find(params[:id])
 
-        @recipe.update_attributes!(params[:recipe].permit(:tipo, :foto, :arachidi_e_derivati, :frutta_a_guscio, :latte_e_derivati,
+        @recipe.update_attributes!(params[:recipe].permit(:nome,:tipo, :foto, :arachidi_e_derivati, :frutta_a_guscio, :latte_e_derivati,
         :molluschi, :pesce, :sesamo, :soia, :crostacei, :glutine, :lupini, :senape, :sedano, :anidride_solforosa_e_solfiti,
         :uova_e_derivati, :ingredienti, :procedimento, :energia, :carboidrati, :grassi, :proteine, :fibre, :sodio,
         :video_tutorial))

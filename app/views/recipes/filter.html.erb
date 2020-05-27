@@ -1,0 +1,85 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body style="background-color:#333;">
+<div class="navbar navbar-expand-lg-md-sm " style="background-color:#23282e;">
+ 
+    <h1 style="color:#bd000d;">FitRecps  </h1>
+   
+</div>
+<div class="container">
+    <div class="row">
+    <span class="text-white"><%= link_to "< Torna alle ricette", recipes_path %></span>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 " style="border-color:#bd000d;">
+          <div class="card-body" style="text-align:center;">
+          <h2  >Scegli i filtri da applicare </h2>
+        <div class="container">
+        <%= form_with url: recipes_filter_scelta_visualizza_path ,model: @recipe,method: :get, local: true do |form| %>
+
+        <!--  TIPO  -->
+
+        <div class="field">
+            <%= form.label :Tipo %>
+            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
+        </div>
+
+        <!--  MACRONUTRIENTI  -->
+
+        <div class="field" style="margin-left:40px">
+            <%= form.label :Energia %>
+            <%= form.number_field :Energia %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:13px">
+            <%= form.label :Carboidrati %>
+            <%= form.number_field :Carboidrati %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:50px">
+            <%= form.label :Grassi %>
+            <%= form.number_field :Grassi %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:33px">
+            <%= form.label :Proteine %>
+            <%= form.number_field :Proteine %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:58px">
+            <%= form.label :Fibre %>
+            <%= form.number_field :Fibre %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:53px">
+            <%= form.label :Sodio %>
+            <%= form.number_field :Sodio %>
+        </div>
+
+        <!--  LINK VIDEO TUTORIAL  -->
+
+        <div class="field mt-1" style="margin-left:39px">
+            <%= form.label :Tutorial %>
+            <%= form.text_field :Tutorial %>
+        </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body >
+
+</html>

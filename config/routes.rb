@@ -20,6 +20,11 @@ Rails.application.routes.draw do
 
 
   get 'cards/filter/scelta/visualizza', :to => 'cards#visualizza'
+  
+
+  get 'recipes/filter/scelta', :to => 'recipes#filter'
+  get 'recipes/filter/scelta/visualizza', :to => 'recipes#visualizza'
+   
 
  root 'cards#index'
    

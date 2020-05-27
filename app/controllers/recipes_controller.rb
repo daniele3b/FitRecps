@@ -118,4 +118,12 @@ class RecipesController < ApplicationController
         redirect_to profiles_myrecipes_url
     end
 
+    def filter
+        puts('FILTER!')
+    end
+    
+    def visualizza
+        puts('VISUALIZZA!')
+    end
+
 end

@@ -1,0 +1,141 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body style="background-color:#333;">
+
+
+
+<div class="nav-side-menu d-block d-sm-none">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse"  class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                   <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
+                 
+                <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
+                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
+                  <li style="list-style: none;">Informazioni</li>
+                </ul>
+                </li>
+                  
+                
+                 <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+</div>
+<!-- menu -->
+
+<div class="container-fluid">
+<div class="row ">
+<div class="col-2 p-0 d-none d-sm-block ">
+<div class="nav-side-menu">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse"  class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
+                 
+                <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
+                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
+                  <li style="list-style: none;">Informazioni</li>
+                </ul>
+                </li>
+                  <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+
+</div>
+<!-- fine menu-->
+
+<!-- dati-->
+<div class="col p-0"  >
+<center>
+<h4 class="mb-2 mt-2"style="color:white;"> ANALISI SCHEDE PUBBLICATE</h4>
+<div class="mb-2" style="height:500px;overflow:auto;">
+
+<table class="table w-75  mt-2 "   >                         
+ <thead class="thead-light" style="padding:0;
+  font-size: 15px;
+  position: sticky; top: 0;
+  overflow-y: auto; 
+  border:  1 grey;">
+    <tr>
+      <th scope="col">Categoria</th>
+      <th scope="col">Zona</th>
+      <th scope="col">Durata</th>
+      <th scope="col">Energia</th>
+      <th scope="col">Interazioni</th>
+    </tr>
+  </thead>
+  <tbody  >
+    <% @cards.each do |card| %>      
+    <tr class="bg-light">
+    <td><%= card.categoria %></td> 
+    <td><%= card.zona %></td>  
+    <td><%= card.durata %></td>
+    <td><%= card.energia %></td>
+    <td><%= card.interazioni %></td>
+    </tr>
+    <% end %>  
+</tbody>                     
+</table> 
+</div>
+</center>
+
+ 
+
+</div>
+</div> <!-- chiudo col-->
+ 
+</div> <!-- chiude row-->
+</div><!-- chiude cont-->
+<!-- fine menu-->
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+

@@ -6,6 +6,11 @@ class CardsController < ApplicationController
 
     def destroy
         @card=Card.find(params[:id])
+
+
+        @rev=Review.where(cards:params[:id])
+
+        @rev.delete_all
         @card.destroy
 
         redirect_to profiles_mycards_url

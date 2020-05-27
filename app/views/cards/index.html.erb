@@ -88,7 +88,8 @@
 <!-- dati-->
 <div class="col p-0"  >
 <center>
-<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE </h4>
+<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE  </h4>
+
 <div class="mb-2" style="height:500px;overflow:auto;">
 
 <table class="table w-75  mt-2 "   >                         
@@ -101,7 +102,9 @@
       <th scope="col">Categoria</th>
       <th scope="col">Zona</th>
       <th scope="col">Durata</th>
-      <th scope="col"></th>
+     <th><%= link_to cards_filter_scelta_path do %>       
+            <%= image_tag "filter.png",style:"width:25px;" %>
+<% end %></th>
     </tr>
   </thead>
   <tbody  >

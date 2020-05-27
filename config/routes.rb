@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :recipes
   get 'profiles/mycards', :to => 'profiles#mycards'
 
+  get 'cards/filter/scelta', :to => 'cards#filter'
  root 'cards#index'
    
 end

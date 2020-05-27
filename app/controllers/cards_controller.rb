@@ -60,4 +60,8 @@ class CardsController < ApplicationController
         redirect_to profiles_mycards_url
     end
 
+    def filter
+        
+
+    end
 end

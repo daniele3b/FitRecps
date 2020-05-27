@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_162126) do
+ActiveRecord::Schema.define(version: 2020_05_27_173642) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -45,20 +45,20 @@ ActiveRecord::Schema.define(version: 2020_05_27_162126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "codice"
-    t.boolean "arachidi_e_derivati", default: false
-    t.boolean "frutta_a_guscio", default: false
-    t.boolean "latte_e_derivati", default: false
-    t.boolean "molluschi", default: false
-    t.boolean "pesce", default: false
-    t.boolean "sesamo", default: false
-    t.boolean "soia", default: false
-    t.boolean "crostacei", default: false
-    t.boolean "glutine", default: false
-    t.boolean "lupini", default: false
-    t.boolean "senape", default: false
-    t.boolean "sedano", default: false
-    t.boolean "anidride_solforosa_e_solfiti", default: false
-    t.boolean "uova_e_derivati", default: false
+    t.string "arachidi_e_derivati", default: "0"
+    t.string "frutta_a_guscio", default: "0"
+    t.string "latte_e_derivati", default: "0"
+    t.string "molluschi", default: "0"
+    t.string "pesce", default: "0"
+    t.string "sesamo", default: "0"
+    t.string "soia", default: "0"
+    t.string "crostacei", default: "0"
+    t.string "glutine", default: "0"
+    t.string "lupini", default: "0"
+    t.string "senape", default: "0"
+    t.string "sedano", default: "0"
+    t.string "anidride_solforosa_e_solfiti", default: "0"
+    t.string "uova_e_derivati", default: "0"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

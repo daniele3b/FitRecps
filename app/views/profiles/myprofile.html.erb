@@ -76,7 +76,7 @@
                   <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
                   <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
                   <li style="list-style: none;">Analisi Ricette</li>
-                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)%></li>
                 </ul>
                 </li>
                   <li>
@@ -89,50 +89,27 @@
 </div>
 <!-- fine menu-->
 
-<!-- dati-->
-<div class="col p-0"  >
-<center>
-<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE  </h4>
-
-<div class="mb-2" style="height:500px;overflow:auto;">
-
-<table class="table w-75  mt-2 "   >                         
- <thead class="thead-light" style="padding:0;
-  font-size: 15px;
-  position: sticky; top: 0;
-  overflow-y: auto; 
-  border:  1 grey;">
-    <tr>
-      <th scope="col">Categoria</th>
-      <th scope="col">Zona</th>
-      <th scope="col">Durata</th>
-       <th scope="col">Energia</th>
-     <th><%= link_to cards_filter_scelta_path do %>       
-            <%= image_tag "filter.png",style:"width:25px;" %>
-<% end %>
-<%= link_to cards_ordina_energia_path  do %>       
-            <%= image_tag "sort_asc.png",style:"width:25px;",class:"ml-1" %>
-<% end %>
-<%= link_to cards_ordina_energia_desc_path  do %>       
-            <%= image_tag "sort_desc.png",style:"width:25px;",class:"ml-1" %>
-<% end %></th>
-    </tr>
-  </thead>
-  <tbody  >
-    <% @cards.each do |card| %>      
-    <tr class="bg-light">
-    <td><%= card.categoria %></td> 
-    <td><%= card.zona %></td>  
-    <td><%= card.durata %></td>
-    <td><%= card.energia %></td>
-
-    <td><%= link_to 'Info', card_path(card)  %> </td>  
-    </tr>
-    <% end %>  
-</tbody>                     
-</table> 
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 " style="border-color:#bd000d;">
+          <div class="card-body" style="text-align:center;">
+                <h2>Il tuo profilo </h2><br>
+                <% if user_signed_in? %>
+                    Email: <%= current_user.email%> <br>
+                    Nome: <%= current_user.nome%> <br>
+                    Cognome: <%= current_user.cognome%> <br>
+                    Data di nascita: <%= current_user.dataNascita%> <br>
+                    Luogo di nascita: <%= current_user.luogoNascita%> <br>
+                    Sesso: <%= current_user.sesso%> <br>
+                    <%= button_to "Modifica profilo", registration_path(:user), method: :put %></p>
+                    <%= button_to "Cancella profilo", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                <% end %>
+          </div>
+        </div>
+       </div>
+    </div>
 </div>
-</center>
 
  
 

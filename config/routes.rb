@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'profiles/mycards', :to => 'profiles#mycards'
   get 'profiles/myrecipes', :to => 'profiles#myrecipes'
 
+  get 'profiles/myprofile', :to => 'profiles#myprofile'
+
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 
   get 'cards/filter/scelta', :to => 'cards#filter'

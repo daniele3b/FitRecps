@@ -61,7 +61,80 @@ class CardsController < ApplicationController
     end
 
     def filter
-        
 
+
+    end
+
+    def visualizza
+        @categoria=params[:categoria]
+        @e_min=params[:energia_min]
+        @e_max=params[:energia_max]
+        @zona=params[:zona]
+
+        if (@categoria!=''&&@e_min!='' &&@e_max!=''&&@zona!='')
+            @cards=Card.where(energia: (@e_min.to_i)..(@e_max.to_i),categoria: @categoria, zona: @zona)
+        end
+
+        if(@categoria==''&&@e_min!='' &&@e_max!=''&&@zona!='')
+            @cards=Card.where(energia: (@e_min.to_i)..(@e_max.to_i), zona: @zona)
+        end
+
+        if (@categoria!=''&&@e_min=='' &&@e_max!=''&&@zona!='')
+            @cards=Card.where(energia: (0)..(@e_max.to_i),categoria: @categoria, zona: @zona)
+        end
+
+        if (@categoria!=''&&@e_min!='' &&@e_max==''&&@zona!='')
+            @cards=Card.where(energia: (@e_min.to_i)..(20000),categoria: @categoria, zona: @zona)
+        end
+
+        if (@categoria!=''&&@e_min!='' &&@e_max!=''&&@zona=='')
+            @cards=Card.where(energia: (@e_min.to_i)..(@e_max.to_i),categoria: @categoria)
+        end
+
+        if (@categoria!=''&&@e_min!='' &&@e_max==''&&@zona=='')
+            @cards=Card.where(energia: (@e_min.to_i)..(20000),categoria: @categoria)
+        end
+
+        if (@categoria!=''&&@e_min=='' &&@e_max!=''&&@zona=='')
+            @cards=Card.where(energia: (0)..(@e_max.to_i),categoria: @categoria)
+        end
+
+        if (@categoria==''&&@e_min!='' &&@e_max!=''&&@zona=='')
+            @cards=Card.where(energia: (@e_min.to_i)..(@e_max.to_i))
+        end
+
+        if (@categoria!=''&&@e_min=='' &&@e_max==''&&@zona!='')
+            @cards=Card.where(categoria: @categoria, zona: @zona)
+        end
+
+        if (@categoria!=''&&@e_min!='' &&@e_max!=''&&@zona!='')
+            @cards=Card.where(energia: (@e_min.to_i)..(@e_max.to_i),categoria: @categoria, zona: @zona)
+        end
+        
+        if (@categoria==''&&@e_min!='' &&@e_max==''&&@zona=='')
+            @cards=Card.where(energia: (@e_min.to_i)..(20000))
+        end
+
+        if (@categoria==''&&@e_min=='' &&@e_max!=''&&@zona=='')
+            @cards=Card.where(energia: (0)..(@e_max.to_i))
+        end
+
+        if (@categoria!=''&&@e_min=='' &&@e_max==''&&@zona=='')
+            @cards=Card.where(categoria: @categoria)
+        end
+        
+        if (@categoria==''&&@e_min=='' &&@e_max==''&&@zona!='')
+            @cards=Card.where( zona: @zona)
+        end
+
+        if (@categoria==''&&@e_min=='' &&@e_max==''&&@zona=='')
+            @cards=Card.all
+        end
+
+    end
+
+
+    def visualizzacard
+        @card=Card.find(params[:id])
     end
 end

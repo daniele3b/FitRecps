@@ -12,6 +12,7 @@
 
 <div class="container">
     <div class="row">
+    <span class="text-white"><%= link_to "< Torna alle ricette", recipes_path %></span>
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
@@ -25,16 +26,15 @@
             <%= form.text_field :Nome %>
         </div>
 
-        <!--  BOTTONE FOTO + SFOGLIA  -->
+        <!--  INSERISCI IMMAGINE  -->
 
         <div class="row">
-
             <div class="col">
-                <div class="button" type="button"><b>+</b></div>        
+                <%= form.label :Immagine %>
             </div>
-
+            
             <div class="col">
-                <div class="button" type="button"><b>Sfoglia</b></div>
+                <%= form.file_field :Immagine %>
             </div>
         
         </div>

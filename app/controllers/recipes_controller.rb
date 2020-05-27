@@ -40,7 +40,7 @@ class RecipesController < ApplicationController
         
         @codice = SecureRandom.urlsafe_base64(50, false)
 
-        @recipe = Recipe.create(:codice=>@codice, :nome=>@nome, :tipo=>@tipo, :arachidi_e_derivati=>@arachidi_e_derivati,
+        @recipe = Recipe.create(:foto=>params[:Immagine], :codice=>@codice, :nome=>@nome, :tipo=>@tipo, :arachidi_e_derivati=>@arachidi_e_derivati,
             :frutta_a_guscio=>@frutta_a_guscio, :latte_e_derivati=>@latte_e_derivati, :molluschi=>@molluschi,
             :pesce=>@pesce, :sesamo=>@sesamo, :soia=>@soia, :crostacei=>@crostacei, :glutine=>@glutine,
             :lupini=>@lupini, :senape=>@senape, :sedano=>@sedano,

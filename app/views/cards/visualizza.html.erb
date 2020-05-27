@@ -88,7 +88,7 @@
 <!-- dati-->
 <div class="col p-0"  >
 <center>
-<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE  </h4>
+<h4 class="mb-2 mt-2"style="color:white;"> LISTA SCHEDE FILTRATE </h4>
 
 <div class="mb-2" style="height:500px;overflow:auto;">
 
@@ -114,13 +114,12 @@
     <td><%= card.zona %></td>  
     <td><%= card.durata %></td>
 
-    <td><%= link_to 'Info', card_path(card)  %> </td>  
+    <td><%= link_to "Info", controller: "cards", action: "visualizzacard", id: (card) %> </td>  
     </tr>
     <% end %>  
 </tbody>                     
 </table> 
 </div>
-<%= link_to( "Aggiungi",new_card_path,method: :get,:style => "width:80px;padding:5px; background-color:red;color:white;",:class=>"rounded ")   %></button>
 </center>
 
  

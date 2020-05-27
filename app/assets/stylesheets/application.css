@@ -101,7 +101,7 @@
   .nav-side-menu ul .sub-menu li:before,
   .nav-side-menu li .sub-menu li:before {
     font-family: FontAwesome;
-    content: "\f105";
+    
     display: inline-block;
     padding-left: 10px;
     padding-right: 10px;
@@ -161,6 +161,10 @@
     .nav-side-menu .menu-list .menu-content {
       display: block;
     }
+  }
+  ul{
+
+    list-style-type:none;
   }
   body {
     margin: 0px;

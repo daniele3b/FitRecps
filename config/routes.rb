@@ -4,8 +4,16 @@ Rails.application.routes.draw do
   resources :cards
   
   resources :recipes
+
+  get 'finestra/:id', :to=> 'cards#visualizzacard'
   get 'profiles/mycards', :to => 'profiles#mycards'
 
+  get 'cards/filter/scelta', :to => 'cards#filter'
+
+
+  get 'cards/filter/scelta/visualizza', :to => 'cards#visualizza'
+
+  
  root 'cards#index'
    
 end

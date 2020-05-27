@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
 
     def exist
-        puts(params[:id])
-
-        if(Review.where(card_id: params[:id],user_id: current_user.id))
-            redirect_to new_review_path
+       
+        
+        if(Review.where(cards: params[:id],users: current_user.id).length==0)
+            redirect_to new_review_path(cid: params[:id])
         else
-            redirect_to edit_review
+            redirect_to edit_review_path
         end
 
     end
@@ -14,17 +14,20 @@ class ReviewsController < ApplicationController
 
     
     def destroy
-    
-
         redirect_to profiles_mycards_url
     end
 
     def create
-        render html:'porco'
+   
+      @s=params[:s]
+
+      @review=Review.create(:valore=>params[:valore],:cards=>@s,:users=>current_user.id)
+      @review.save!
+      redirect_to cards_url
     end
 
     def new
-        render html:'porco'
+        @c=params[:cid]
     end 
 
 

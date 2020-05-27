@@ -123,7 +123,39 @@ class RecipesController < ApplicationController
     end
     
     def visualizza
-        puts('VISUALIZZA!')
+        @tipo = params[:tipo]
+
+        @carboidrati_min = params[:carboidrati_min]
+        @carboidrati_max = params[:carboidrati_max]
+        @grassi_min = params[:grassi_min]
+        @grassi_max = params[:grassi_max]
+        @proteine_min = params[:proteine_min]
+        @proteine_max = params[:proteine_max]
+
+        puts(@tipo)
+        puts(@carboidrati_min)
+        puts(@carboidrati_max)
+        puts(@grassi_min)
+        puts(@grassi_max)
+        puts(@proteine_min)
+        puts(@proteine_max)
+        
+        #FILTRI CON 1 PARAMETRO
+        
+        #Solo tipo
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max == '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo)
+        end
+
+        #Solo carboidrati_min
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max == '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(20000))
+
+            puts(@recipes)
+        end
+        
+        
+
     end
 
 end

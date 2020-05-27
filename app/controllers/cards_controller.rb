@@ -4,6 +4,13 @@ class CardsController < ApplicationController
         @cards= Card.all
     end
 
+    def destroy
+        @card=Card.find(params[:id])
+        @card.destroy
+
+        redirect_to profiles_mycards_url
+    end
+
     def create
         @durata=params[:durata]
         @zona=params[:zona]

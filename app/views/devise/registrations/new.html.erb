@@ -33,9 +33,7 @@
 
               <div class="field">
                 <%= f.label :data_Di_Nascita %><br />
-                <%= f.select :dataNascita, autofocus: true, autocomplete: "giorno" %>
-                <%= f.select :dataNascita, autofocus: true, autocomplete: "mese" %>
-                <%= f.select :dataNascita, autofocus: true, autocomplete: "anno" %>
+                <%= f.date_select :dataNascita, order: [:day, :month, :year], prompt: { day: 'Giorno', month: 'Mese', year: 'Anno' }, start_year: Date.today.year, end_year: Date.today.year - 100 %>
               </div>
 
               <div class="field">
@@ -45,7 +43,7 @@
 
               <div class="field">
                 <%= f.label :sesso %><br />
-                <%= f.select :sesso, autofocus: true, autocomplete: "maschio" %>
+                <%= f.select :sesso, ["Maschio","Femmina"]%>
               </div>
 
               <div class="field">

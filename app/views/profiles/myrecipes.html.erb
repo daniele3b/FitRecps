@@ -83,12 +83,11 @@
 </div>
 
 </div>
-<!-- fine menu-->
 
 <!-- dati-->
 <div class="col p-0"  >
 <center>
-<h4 class="mb-2 mt-2"style="color:white;"> LISTA RICETTE </h4>
+<h4 class="mb-2 mt-2"style="color:white;"> LISTA RICETTE PUBBLICATE</h4>
 <div class="mb-2" style="height:500px;overflow:auto;">
 
 <table class="table w-75  mt-2 "   >                         
@@ -107,9 +106,10 @@
     <% @recipes.each do |recipe| %>      
     <tr class="bg-light">
     <td><%= recipe.nome %></td> 
-    <td><%= recipe.tipo %></td>  
+    <td><%= recipe.tipo %></td>
 
-    <td><%= link_to 'Info', recipe_path(recipe)  %> </td>  
+    <td><%= link_to 'Modifica', edit_recipe_path(recipe)  %> </td>
+    <td><%= link_to('Elimina', recipe_path(recipe),method: :delete)  %> </td>   
     </tr>
     <% end %>  
 </tbody>                     

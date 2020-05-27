@@ -1,0 +1,198 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body style="background-color:#333;">
+<div class="navbar navbar-expand-lg-md-sm" style="background-color:#23282e;">
+ 
+    <h1 style="color:#bd000d;">FitRecps</h1>
+   
+</div>
+
+<div class="container">
+    <div class="row">
+    <span class="text-white"><%= link_to "< Torna alle ricette", recipes_path %></span>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
+          <div class="card-body" style="text-align:center;">
+          <h2>Modifica ricetta </h2>
+        <%= form_with url: recipes_path ,model: @recipe, local: true do |form| %>
+  
+        <!--  NOME  -->
+
+        <div class="field">
+            <%= form.label :Nome %>
+            <%= form.text_field :Nome %>
+        </div>
+
+        <!--  INSERISCI IMMAGINE  -->
+
+        <div class="row">
+            <div class="col">
+                <%= form.label :Immagine %>
+            </div>
+            
+            <div class="col">
+                <%= form.file_field :Immagine %>
+            </div>
+        
+        </div>
+
+        <!--  TIPO  -->
+
+        <div class="field">
+            <%= form.label :Tipo %>
+            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'] %>
+        </div>
+
+        <!--  ALLERGENI  -->
+
+       
+           Allergeni 
+    
+
+        <div class="field mt-2">
+            <%= form.check_box :Arachidi_e_derivati %>
+            <%= form.label :Arachidi_e_derivati %>
+        </div>
+
+        <div class="field mr-4">
+            <%= form.check_box :Frutta_a_guscio %>
+            <%= form.label :Frutta_a_guscio %>
+        </div>
+
+        <div class="field mr-4">
+            <%= form.check_box :Latte_e_derivati %>
+            <%= form.label :Latte_e_derivati %>
+        </div>
+
+        <div class="field" style="margin-right:60px">
+            <%= form.check_box :Molluschi %>
+            <%= form.label :Molluschi %>
+        </div>
+
+        <div class="field" style="margin-right:88px">
+            <%= form.check_box :Pesce %>
+            <%= form.label :Pesce %>
+        </div>
+
+        <div class="field" style="margin-right:72px">
+            <%= form.check_box :Sesamo %>
+            <%= form.label :Sesamo %>
+        </div>
+
+        <div class="field" style="margin-right:97px">
+            <%= form.check_box :Soia %>
+            <%= form.label :Soia %>
+        </div>
+
+        <div class="field" style="margin-right:62px">
+            <%= form.check_box :Crostacei %>
+            <%= form.label :Crostacei %>
+        </div>
+
+        <div class="field" style="margin-right:76px">
+            <%= form.check_box :Glutine %>
+            <%= form.label :Glutine %>
+        </div>
+
+        <div class="field" style="margin-right:85px">
+            <%= form.check_box :Lupini %>
+            <%= form.label :Lupini %>
+        </div>
+
+        <div class="field" style="margin-right:75px">
+            <%= form.check_box :Senape %>
+            <%= form.label :Senape %>
+        </div>
+
+        <div class="field" style="margin-right:75px">
+            <%= form.check_box :Sedano %>
+            <%= form.label :Sedano %>
+        </div>
+
+        <div class="field" style="margin-left:57px">
+            <%= form.check_box :Anidride_solforosa_e_solfiti %>
+            <%= form.label :Anidride_solforosa_e_solfiti %>
+        </div>
+
+        <div class="field" style="margin-right:21px">
+            <%= form.check_box :Uova_e_derivati %>
+            <%= form.label :Uova_e_derivati %>
+        </div>
+
+
+        <!--  INGREDIENTI  -->
+
+        <div class="field mt-2">
+            <%= form.label :Ingredienti %>
+            <%= form.text_area :Ingredienti %>
+        </div>
+
+        <!--  PROCEDIMENTO  -->
+
+        <div class="field" style="margin-right:21px">
+            <%= form.label :Procedimento %>
+            <%= form.text_area :Procedimento %>
+        </div>
+
+        <!--  MACRONUTRIENTI  -->
+
+        <div class="field" style="margin-left:40px">
+            <%= form.label :Energia %>
+            <%= form.number_field :Energia %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:13px">
+            <%= form.label :Carboidrati %>
+            <%= form.number_field :Carboidrati %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:50px">
+            <%= form.label :Grassi %>
+            <%= form.number_field :Grassi %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:33px">
+            <%= form.label :Proteine %>
+            <%= form.number_field :Proteine %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:58px">
+            <%= form.label :Fibre %>
+            <%= form.number_field :Fibre %>
+        </div>
+
+        <div class="field mt-1" style="margin-left:53px">
+            <%= form.label :Sodio %>
+            <%= form.number_field :Sodio %>
+        </div>
+
+        <!--  LINK VIDEO TUTORIAL  -->
+
+        <div class="field mt-1" style="margin-left:39px">
+            <%= form.label :Tutorial %>
+            <%= form.text_field :Tutorial %>
+        </div>
+
+        <!--  BOTTONE SAVE  -->
+    
+        <div class="actions mt-1">
+            <%= form.submit %>
+        </div>
+        
+
+<% end %>
+
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body >
+
+</html>

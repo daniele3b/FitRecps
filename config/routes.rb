@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   get 'finestra/:id', :to=> 'cards#visualizzacard'
   get 'profiles/mycards', :to => 'profiles#mycards'
+  get 'profiles/myrecipes', :to => 'profiles#myrecipes'
 
   get 'cards/filter/scelta', :to => 'cards#filter'
 
 
   get 'cards/filter/scelta/visualizza', :to => 'cards#visualizza'
 
-  
  root 'cards#index'
    
 end

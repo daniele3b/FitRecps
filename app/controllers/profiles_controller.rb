@@ -10,5 +10,8 @@ class ProfilesController < ApplicationController
 
     def analisicard
         @cards=Card.all
+
+
+        @b=Card.group(:categoria).sum(:interazioni)
     end
 end

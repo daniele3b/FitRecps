@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
             :anidride_solforosa_e_solfiti=>@anidride_solforosa_e_solfiti, :uova_e_derivati=>@uova_e_derivati,
             :ingredienti=>@ingredienti, :procedimento=>@procedimento, :energia=>@energia, :carboidrati=>@carboidrati,
             :grassi=>@grassi, :proteine=>@proteine, :fibre=>@fibre, :sodio=>@sodio, :video_tutorial=>@video_tutorial,
-            :user_id=>current_user.id)
+            :user_id=>current_user.id, :interazioni=>0)
         
         @recipe.save!
         redirect_to recipes_url

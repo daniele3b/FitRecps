@@ -14,4 +14,13 @@ class ProfilesController < ApplicationController
 
         @b=Card.group(:categoria).sum(:interazioni)
     end
+
+    def analisirecipe
+
+        @recipes = Recipe.all
+
+
+        @b=Recipe.group(:tipo).sum(:interazioni)
+
+    end 
 end

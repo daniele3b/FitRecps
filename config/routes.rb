@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   get 'recipes/ordina/energia/desc', :to=> 'recipes#ordinadesc'
 
+  get 'profiles/analisi/recipes', :to => 'profiles#analisirecipe'
+
  root 'cards#index'
    
 end

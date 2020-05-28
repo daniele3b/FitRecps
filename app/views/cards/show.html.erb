@@ -51,7 +51,14 @@
             ESERCIZI: <br><%= simple_format(@card.esercizi) %>
             </div>
             </div>
+            <div class="row mt-2">
+            <div class="col">
+            VALUTAZIONE: <br><%= @val %>
+            </div>
+            </div>
              <span class="text-white"><%= link_to "Recensione", :controller => :reviews, :action => :exist %></span>
+
+
 
           </div>
          

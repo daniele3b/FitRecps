@@ -45,11 +45,15 @@ class CardsController < ApplicationController
 
     def show
         
-        @card=Card.find(params[:id])
+       @card=Card.find(params[:id])
        @val=@card.interazioni
        @val=@val+1
        @card.interazioni=@val
        @card.save!
+       
+       @val=Review.where(cards:params[:id]).average(:valore).to_f
+
+    
 
 
     end

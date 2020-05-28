@@ -14,7 +14,13 @@ class ReviewsController < ApplicationController
 
     
     def destroy
-        redirect_to profiles_mycards_url
+        @c=params[:id]
+        
+        @rev=Review.where(cards:@c,users:current_user.id)
+        
+        @rev[0].destroy
+
+        redirect_to cards_url
     end
 
     def create
@@ -36,6 +42,7 @@ class ReviewsController < ApplicationController
 
         @rev=Review.where(cards:@c,users:current_user.id)
 
+
         @r=@rev[0]
   
       
@@ -48,7 +55,7 @@ class ReviewsController < ApplicationController
         @rev=Review.where(cards:@s,users:current_user.id)
 
         @rev[0].destroy
-        
+
         @review=Review.create(:valore=>params[:valore],:cards=>@s,:users=>current_user.id)
         @review.save!
 

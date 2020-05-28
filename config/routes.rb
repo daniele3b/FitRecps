@@ -33,7 +33,10 @@ Rails.application.routes.draw do
   get 'recipes/filter/scelta/visualizza', :to => 'recipes#visualizza'
 
   get 'recipes/filter/scelta/visualizzarecipe', :to => 'recipes#visualizzarecipe'
-   
+  
+  get 'recipes/ordina/energia', :to=> 'recipes#ordina'
+
+  get 'recipes/ordina/energia/desc', :to=> 'recipes#ordinadesc'
 
  root 'cards#index'
    

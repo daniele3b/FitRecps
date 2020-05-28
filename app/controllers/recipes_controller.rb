@@ -130,6 +130,14 @@ class RecipesController < ApplicationController
 
         #aggiungere interazioni
     end
+
+    def ordina
+        @recipes = Recipe.order(:energia)
+    end
+
+    def ordinadesc
+        @recipes = Recipe.order(energia: :desc)
+    end
     
     def visualizza
         @tipo = params[:tipo]

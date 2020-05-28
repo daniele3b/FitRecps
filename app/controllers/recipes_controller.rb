@@ -468,8 +468,297 @@ class RecipesController < ApplicationController
 
 
         #FILTRI CON 4 PARAMETRI
+        
+        #tipo + carboidrati_min + carboidrati_max + grassi_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max == '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max == '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_min + grassi_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(@grassi_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_min + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + grassi_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max == '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(20000), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (0)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_max + grassi_min + grassi_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i))
+        end
+
+        #tipo + carboidrati_max + grassi_min + proteine_min
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_max + grassi_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_max + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_max + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + grassi_min + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + grassi_min + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + grassi_min + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + grassi_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + proteine_min
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_max + proteine_min
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_max + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_max + grassi_min + grassi_max + proteine_min
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #carboidrati_max + grassi_min + grassi_max + proteine_max
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_max + grassi_min + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+        
+        #grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
 
         
+        #FILTRI CON 5 PARAMETRI
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + grassi_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_min + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_min + grassi_min + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_max + grassi_min + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #tipo + carboidrati_max + grassi_min + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + grassi_max + proteine_min
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + grassi_max + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + carboidrati_max + grassi_min + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_min + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #carboidrati_max + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+
+        #FILTRI CON 6 PARAMETRI
+
+        #carboidrati_min + carboidrati_max + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo == '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+        
+        #tipo + carboidrati_max + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min == '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (0)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + grassi_min + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max == '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(20000), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_max + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min == '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (0)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + proteine_min + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max == '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(20000), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + grassi_max + proteine_max
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (0)..(@proteine_max.to_i))
+        end
+
+        #tipo + carboidrati_min + carboidrati_max + grassi_min + grassi_max + proteine_min
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max == '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(20000))
+        end
+
+        
+        
+        #FILTRI CON TUTTI I PARAMETRI
+        if (@tipo != '' && @carboidrati_min != '' && @carboidrati_max != '' && @grassi_min != '' && @grassi_max != '' && @proteine_min != '' && @proteine_max != '')
+            @recipes = Recipe.where(tipo: @tipo, carboidrati: (@carboidrati_min.to_i)..(@carboidrati_max.to_i), grassi: (@grassi_min.to_i)..(@grassi_max.to_i), proteine: (@proteine_min.to_i)..(@proteine_max.to_i))
+        end
+
+
+
+        #NESSUN FILTRO
+        if (@tipo == '' && @carboidrati_min == '' && @carboidrati_max == '' && @grassi_min == '' && @grassi_max == '' && @proteine_min == '' && @proteine_max == '')
+            @recipes = Recipe.all  
+        end
 
     end
 

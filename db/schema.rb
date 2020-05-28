@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_215629) do
+ActiveRecord::Schema.define(version: 2020_05_28_104146) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_215629) do
     t.string "sedano", default: "0"
     t.string "anidride_solforosa_e_solfiti", default: "0"
     t.string "uova_e_derivati", default: "0"
+    t.integer "interazioni"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

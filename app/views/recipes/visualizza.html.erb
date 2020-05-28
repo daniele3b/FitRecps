@@ -99,7 +99,7 @@
     <tr>
       <th scope="col">Nome</th>
       <th scope="col">Tipo</th>
-      <th scope="col"></th>
+      <th scope="col"><%= link_to recipes_filter_scelta_path do %><%= image_tag "filter.png",style:"width:25px;" %><% end %></th>
     </tr>
   </thead>
   <tbody  >
@@ -108,7 +108,7 @@
     <td><%= recipe.nome %></td> 
     <td><%= recipe.tipo %></td>  
 
-    <td><%= link_to 'Info', recipe_path(recipe)  %> </td>  
+    <td><%= link_to 'Info', recipes_filter_scelta_visualizzarecipe_path(recipe)  %> </td> 
     </tr>
     <% end %>  
 </tbody>                     

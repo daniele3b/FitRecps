@@ -66,6 +66,8 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
+
+        #Aggiungere interazioni
     end
 
     def edit
@@ -120,6 +122,13 @@ class RecipesController < ApplicationController
 
     def filter
         puts('FILTER!')
+    end
+
+    #ricetta filtrata
+    def visualizzarecipe
+        @recipe = Recipe.find(params[:id])
+
+        #aggiungere interazioni
     end
     
     def visualizza

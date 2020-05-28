@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get 'recipes/filter/scelta', :to => 'recipes#filter'
   get 'recipes/filter/scelta/visualizza', :to => 'recipes#visualizza'
+
+  get 'recipes/filter/scelta/visualizzarecipe', :to => 'recipes#visualizzarecipe'
    
 
  root 'cards#index'

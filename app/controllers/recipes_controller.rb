@@ -66,14 +66,15 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
-
-        @rating = 0
         
         #incremento di 1 le interazioni
         @val = @recipe.interazioni
         @val = @val+1
         @recipe.interazioni = @val
-        @recipe.save!        
+        @recipe.save!
+        
+        @rating = Rating.where(recipes:params[:id]).average(:valore).to_f
+
     end
 
     def edit

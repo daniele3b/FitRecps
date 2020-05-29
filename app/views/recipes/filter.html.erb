@@ -19,23 +19,26 @@
 
           <hr>
 
+
         <div class="container">
-        <%= form_with url: recipes_filter_scelta_visualizza_path ,model: @recipe,method: :get, local: true do |form| %>
-
-        <div class="row">
-
-            <div class="col">
-                Nome
-            </div>
+        <%= form_with url: recipes_filter_nome_path ,model: @recipe,method: :get, local: true do |form| %>
 
             <div class="field">
                 <%= form.label :nome %>
                 <%= form.text_field :nome %>
             </div>
 
-        </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
 
-        <%= link_to( "Filtra per nome",recipes_filter_nome_path)  %>
+
+<!--  SEPARAZIONE TRA LE DUE FORM  -->
+
+        <div class="container">
+        <%= form_with url: recipes_filter_scelta_visualizza_path ,model: @recipe,method: :get, local: true do |form| %>
 
         <hr>
         

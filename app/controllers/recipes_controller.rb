@@ -66,6 +66,8 @@ class RecipesController < ApplicationController
 
     def show
         @recipe = Recipe.find(params[:id])
+
+        @rating = 0
         
         #incremento di 1 le interazioni
         @val = @recipe.interazioni

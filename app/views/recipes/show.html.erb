@@ -32,10 +32,6 @@
                         <%= image_tag "yt.png", class: "float-right",style:"width:40px;" %>
                     <% end %>
                 </div>
-
-                <div class="col">
-                    <b>VALUTAZIONE</b>:
-                </div>
             
             </div>
 
@@ -105,6 +101,9 @@
               </div>
                 
             </div>
+
+            RATING: <br><%= @rating %><br>
+             <span class="text-white"><%= link_to "Rating", :controller => :ratings, :action => :exist %></span>
 
                 
 

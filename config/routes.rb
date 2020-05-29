@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :recipes
 
   resources :reviews
+
+  resources :ratings
+
   get 'reviews/exist/:id', :to=> 'reviews#exist'
   get 'finestra/:id', :to=> 'cards#visualizzacard'
   get 'profiles/mycards', :to => 'profiles#mycards'
@@ -41,6 +44,8 @@ Rails.application.routes.draw do
   get 'profiles/analisi/recipes', :to => 'profiles#analisirecipe'
 
   get 'recipes/filter/nome', :to => 'recipes#ricettefiltratenome'
+
+  get 'ratings/exist/:id', :to=> 'ratings#exist'
 
  root 'cards#index'
    

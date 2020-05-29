@@ -112,7 +112,7 @@
     <td><%= recipe.nome %></td> 
     <td><%= recipe.tipo %></td>  
 
-    <td><%= link_to 'Info', recipes_filter_scelta_visualizzarecipe_path(recipe)  %> </td> 
+    <td><%= link_to 'Info', controller: "recipes", action: "visualizzarecipe", id: (recipe)%> </td> 
     </tr>
     <% end %>  
 </tbody>                     

@@ -3,63 +3,63 @@ class RatingsController < ApplicationController
     def exist
        
         
-        #if(Review.where(cards: params[:id],users: current_user.id).length==0)
-            #redirect_to new_review_path(cid: params[:id])
-        #else
-            #redirect_to edit_review_path(cid:params[:id])
-        #end
+        if(Rating.where(recipes: params[:id],users: current_user.id).length==0)
+            redirect_to new_rating_path(recipeid: params[:id])
+        else
+            redirect_to edit_rating_path(recipeid:params[:id])
+        end
 
     end
 
 
     
     def destroy
-        #@c=params[:id]
+        @recipeid = params[:id]
         
-        #@rev=Review.where(cards:@c,users:current_user.id)
+        @rat = Rating.where(recipes:@recipeid,users:current_user.id)
         
-        #@rev[0].destroy
+        @rat[0].destroy
 
-        #redirect_to cards_url
+        redirect_to recipes_url
     end
 
     def create
    
-      #@s=params[:s]
+      @recipeid = params[:recipeid]
 
-      #@review=Review.create(:valore=>params[:valore],:cards=>@s,:users=>current_user.id)
-      #@review.save!
-      #redirect_to cards_url
+      @rating = Rating.create(:valore=>params[:valore],:recipes=>@recipeid,:users=>current_user.id)
+      @rating.save!
+      redirect_to recipes_url
     end
 
     def new
-        #@c=params[:cid]
+        @recipeid = params[:recipeid]
     end 
 
 
     def edit
-        #@c=params[:cid]
+        @recipeid = params[:recipeid]
 
-        #@rev=Review.where(cards:@c,users:current_user.id)
+        @rat = Rating.where(recipes:@recipeid,users:current_user.id)
 
 
-        #@r=@rev[0]
+        @r = @rat[0]
   
       
     end
 
     def update
-        #@s=params[:s]
-        #puts(@r)
+        @recipeid = params[:recipeid]
+        puts(@r)
     
-        #@rev=Review.where(cards:@s,users:current_user.id)
+        @rat = Rating.where(recipes:@recipeid, users:current_user.id)
 
-        #@rev[0].destroy
+        @rat[0].destroy
 
-        #@review=Review.create(:valore=>params[:valore],:cards=>@s,:users=>current_user.id)
-        #@review.save!
+        @rating = Rating.create(:valore=>params[:valore],:recipes=>@recipeid,:users=>current_user.id)
+        @rating.save!
 
-        #redirect_to cards_url
+        redirect_to recipes_url
     end
 
 end

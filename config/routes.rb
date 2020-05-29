@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   get 'profiles/analisi/recipes', :to => 'profiles#analisirecipe'
 
+  get 'recipes/filter/nome', :to => 'recipes#ricettefiltratenome'
+
  root 'cards#index'
    
 end

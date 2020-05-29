@@ -128,7 +128,7 @@ class RecipesController < ApplicationController
         puts('FILTER!')
     end
 
-    #ricetta filtrata
+    #dettagli ricetta filtrata
     def visualizzarecipe
         @recipe = Recipe.find(params[:id])
         
@@ -137,6 +137,27 @@ class RecipesController < ApplicationController
         @val = @val+1
         @recipe.interazioni = @val
         @recipe.save!
+    end
+
+    def ricettefiltratenome
+        
+        @nome = params[:nome]
+        puts(@nome)
+        
+        if(@nome != '')
+            puts('NOME INSERITO')
+            @recipes = Recipe.where("nome LIKE '%#{params[:nome]}%'")
+            #Employee.where('nome LIKE ? OR lname LIKE ? OR mname', "%#{str}%", "%#{str}%", "%#{str}%")
+            #@studentname = Student.where("name LIKE :name1 AND city = :cityId1",
+                #{:name1 => "#{params[:name]}%"})
+        end
+
+        if(@nome == '')
+            puts('NOME VUOTO')
+            puts(@nome)
+            @recipes = Recipe.all
+        end
+
     end
 
     def ordina

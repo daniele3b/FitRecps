@@ -16,9 +16,29 @@
         <div class="card card-signin my-5 " style="border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2  >Scegli i filtri da applicare </h2>
+
+          <hr>
+
         <div class="container">
         <%= form_with url: recipes_filter_scelta_visualizza_path ,model: @recipe,method: :get, local: true do |form| %>
 
+        <div class="row">
+
+            <div class="col">
+                Nome
+            </div>
+
+            <div class="field">
+                <%= form.label :nome %>
+                <%= form.text_field :nome %>
+            </div>
+
+        </div>
+
+        <%= link_to( "Filtra per nome",recipes_filter_nome_path)  %>
+
+        <hr>
+        
         <!--  TIPO  -->
 
         <div class="field">

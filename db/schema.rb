@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_104146) do
+ActiveRecord::Schema.define(version: 2020_05_29_093826) do
 
   create_table "cards", id: false, force: :cascade do |t|
     t.string "idf"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2020_05_28_104146) do
     t.string "spiegazione"
     t.integer "interazioni"
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.decimal "valore"
+    t.string "recipes"
+    t.string "users"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|

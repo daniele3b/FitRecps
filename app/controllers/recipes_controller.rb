@@ -147,9 +147,6 @@ class RecipesController < ApplicationController
         if(@nome != '')
             puts('NOME INSERITO')
             @recipes = Recipe.where("nome LIKE '%#{params[:nome]}%'")
-            #Employee.where('nome LIKE ? OR lname LIKE ? OR mname', "%#{str}%", "%#{str}%", "%#{str}%")
-            #@studentname = Student.where("name LIKE :name1 AND city = :cityId1",
-                #{:name1 => "#{params[:name]}%"})
         end
 
         if(@nome == '')

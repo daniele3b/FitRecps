@@ -28,6 +28,7 @@ class CardsController < ApplicationController
       
        
         @card= Card.create(:idf=>@chiave,:interazioni=>0,:spiegazione=>params[:path],:categoria=>@categoria,:durata=>@durata,:energia=>@energia,:zona=>@zona,:esercizi=>@esercizi,:tutorial=>@tutorial,:user_id=>current_user.id)
+        authorize! :create, @card, :message => 'Attenzione: non sei autorizzato a creare card'
         @card.save!
       
         redirect_to cards_url

@@ -16,6 +16,11 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
+    when /^the FitRecps cards page/
+      '/cards/'
+
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

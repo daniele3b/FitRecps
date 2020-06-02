@@ -5,8 +5,6 @@
 # files.
 
 require 'cucumber/rails'
-require 'selenium-webdriver'
-Selenium::WebDriver::Firefox::Binary.path='C:\Program Files\Mozilla Firefox\firefox.exe'
 
 # frozen_string_literal: true
 

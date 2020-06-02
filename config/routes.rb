@@ -15,10 +15,15 @@ Rails.application.routes.draw do
   get 'profiles/myrecipes', :to => 'profiles#myrecipes'
 
   get 'profiles/myprofile', :to => 'profiles#myprofile'
+  get 'profiles/aggimp', :to => 'profiles#aggimp'
+  post 'profiles/aggimp' => "aggimp#aggiungi"
+  post 'profiles/aggimp' => "aggimp#leva"
 
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 
   get 'cards/filter/scelta', :to => 'cards#filter'
+
+  
 
 
   

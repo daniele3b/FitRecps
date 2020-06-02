@@ -55,7 +55,7 @@ class RecipesController < ApplicationController
             :ingredienti=>@ingredienti, :procedimento=>@procedimento, :energia=>@energia, :carboidrati=>@carboidrati,
             :grassi=>@grassi, :proteine=>@proteine, :fibre=>@fibre, :sodio=>@sodio, :video_tutorial=>@video_tutorial,
             :user_id=>current_user.id, :interazioni=>0)
-        
+        authorize! :create, @recipe, :message => 'Attenzione: non sei autorizzato a creare ricette'
         @recipe.save!
         redirect_to recipes_url
     end

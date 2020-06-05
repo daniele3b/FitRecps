@@ -17,7 +17,7 @@ module NavigationHelpers
       '/'
 
     when /^the FitRecps cards page/
-      '/cards/'
+      '/cards'
 
 
 

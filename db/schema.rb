@@ -28,18 +28,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_201007) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_employees_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
-  end
-
   create_table "ratings", force: :cascade do |t|
     t.decimal "valore"
     t.string "recipes"
@@ -107,8 +95,8 @@ ActiveRecord::Schema.define(version: 2020_06_02_201007) do
     t.string "dataNascita"
     t.string "sesso"
     t.integer "roles_mask"
-    t.boolean "admin"
-    t.boolean "employee"
+    t.boolean "admin", default: false
+    t.boolean "employee", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

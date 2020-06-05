@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_201007) do
     t.string "zona"
     t.integer "energia"
     t.text "esercizi"
-    t.string "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tutorial"

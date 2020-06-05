@@ -18,7 +18,15 @@ module NavigationHelpers
 
     when /^the FitRecps cards page/
       '/cards/'
-
+    
+    when /^the FitRecps recipes page/
+      '/recipes/'
+    
+    when /^the Filter Recipe Page/
+      '/recipes/filter/scelta/'
+    
+    when /^the Fitrecps filter recipe page/
+      '/recipes/filter/nome/'
 
 
     # Add more mappings here.

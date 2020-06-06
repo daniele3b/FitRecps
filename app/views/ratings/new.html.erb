@@ -25,12 +25,12 @@
         <%= form.label :valore %>
         </div>
          <div class="col">
-        <%= form.number_field :valore, {:placeholder => "Valore", :required => true, :max=>"5",:min=>"1" } %>
+        <%= form.number_field :valore, {:placeholder => "Valore", :required => true, :max=>"5",:min=>"1",:id=>'valore' } %>
         </div>
         </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Rate' %>
   </div>
 <% end %>
 </div>

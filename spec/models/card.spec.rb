@@ -2,7 +2,8 @@ require 'rails_helper'
 
 
 RSpec.describe Card, :type => :model do
-  
+    User.delete_all
+    Card.delete_all
    describe "Create card " do
         it "should be permitted" do
             m1 = User.new( :id=>'1',:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')

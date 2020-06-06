@@ -7,7 +7,7 @@ RSpec.describe Card, :type => :model do
         it "should be permitted" do
             m1 = User.new( :id=>'1',:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id =>m1.id, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:spiegazione=>'sfasfsa',:user_id =>m1.id, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
             expect(card).to be_valid
         end
     end
@@ -16,7 +16,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
           expect(card).not_to be_valid
         end
     end
@@ -25,7 +25,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -34,7 +34,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m' ,:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m' ,:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -44,7 +44,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -53,7 +53,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare', :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare', :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -62,7 +62,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200,:tutorial=>'sasf',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200,:tutorial=>'sasf',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -71,7 +71,7 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:interazioni=>0)
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:interazioni=>0,:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
         end
     end
@@ -80,8 +80,18 @@ RSpec.describe Card, :type => :model do
         it "shouldn't be permitted" do
             m1 = User.new(:id => '1', :nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
             m1.save!
-            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf')
+            card = Card.new(:user_id => m1, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:spiegazione=>'sfasfsa')
             expect(card).not_to be_valid
+        end
+    end
+
+
+    describe "Create card without spiegazione " do
+        it "should  be permitted" do
+            m1 = User.new( :id=>'1',:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'prova1@example.it', :password => 'useruser')
+            m1.save!
+            card = Card.new(:user_id =>m1.id, :idf => 'Titolo', :durata => '1h20m', :categoria => 'body building',:zona=>'Lombare',:energia=>200, :esercizi => '20xsquat',:tutorial=>'sasf',:interazioni=>0)
+            expect(card).to be_valid
         end
     end
 

@@ -51,7 +51,7 @@ group :development do
 end
 
 group :test do
-
+  gem 'webdrivers'
   gem 'cucumber-rails',:require=>false
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'

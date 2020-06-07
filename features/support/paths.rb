@@ -27,6 +27,8 @@ module NavigationHelpers
     
     when /^the Fitrecps filter recipe page/
       '/recipes/filter/nome/'
+    when /^the FitRecps login page/
+      '/users/sign_in/'
 
 
     # Add more mappings here.

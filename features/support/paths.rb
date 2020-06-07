@@ -15,18 +15,22 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-
+    
+    
     when /^the FitRecps cards page/
-      '/cards'
+      '/'
     
     when /^the FitRecps recipes page/
-      '/recipes/'
+      '/recipes'
+
+    when /^the FitRecps registration page/
+      '/users/sign_up'
     
     when /^the Filter Recipe Page/
-      '/recipes/filter/scelta/'
+      '/recipes/filter/scelta'
     
     when /^the Fitrecps filter recipe page/
-      '/recipes/filter/nome/'
+      '/recipes/filter/nome'
     when /^the FitRecps login page/
       '/users/sign_in/'
 

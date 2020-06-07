@@ -15,7 +15,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-    
+
+    when /^the FitRecps my recipes page/
+      '/profiles/myrecipes'
+
+    when /^the Fitrecps add recipes page/
+      '/recipes/new'
     
     when /^the FitRecps cards page/
       '/'

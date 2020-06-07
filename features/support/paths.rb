@@ -24,6 +24,12 @@ module NavigationHelpers
     
     when /^the FitRecps cards page/
       '/'
+
+    when /^the FitRecps my cards page/
+      '/profiles/mycards'
+
+    when /^the Fitrecps add card page/
+      '/cards/new'
     
     when /^the FitRecps recipes page/
       '/recipes'

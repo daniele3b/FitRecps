@@ -1,7 +1,7 @@
-Feature: User can find recipes using a name
+Feature: User can add a rating to a recipe
    
 
-Scenario: Find recipes with a name
+Scenario: Add a rating to a recipe
     Given I am on the FitRecps login page
     When I follow "Registrati"
     Then I should be on the FitRecps registration page

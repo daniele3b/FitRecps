@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-RSpec.describe 'Search by name a recipe', type: :feature do
+RSpec.describe 'Add a rating', type: :feature do
   Rating.delete_all
   Recipe.delete_all
   User.delete_all

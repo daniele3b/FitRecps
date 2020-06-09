@@ -19,11 +19,11 @@ RSpec.describe 'Add a rating', type: :feature do
     fill_in 'password', with: '12345678'
     click_on 'Log in'
     click_on 'Ricette'
-    click_on 'InfoRicetta per nome'
+    click_on 'Info Ricetta per nome'
     click_on 'Rating'
     fill_in 'valore', with: 5
     click_on 'Rate'
-    click_on 'InfoRicetta per nome'
+    click_on 'Info Ricetta per nome'
     expect(page).to have_content('5.0')
   end
 end

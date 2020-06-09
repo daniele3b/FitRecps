@@ -1,7 +1,7 @@
 Feature: Employee can add a card
    
 
-Scenario: Find recipes with a name
+Scenario: Insert a new Card
     Given I am on the FitRecps login page
     When I follow "Registrati"
     Then I should be on the FitRecps registration page

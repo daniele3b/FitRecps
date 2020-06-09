@@ -25,12 +25,12 @@ Scenario: Add a rating to a recipe
     Then I should be on the FitRecps cards page
     When I follow "Ricette"
     Then I should be on the FitRecps recipes page
-    When I follow "Info"
+    When I follow "Infopizza"
     Then I should see "Dettagli ricetta"
     When I follow "Rating"
     Then I should see "Inserisci un rating alla ricetta"
     When I fill in "Valore" with "5.0"
     And I press "Rate"
     Then I should be on the FitRecps recipes page
-    When I follow "Info"
+    When I follow "Infopizza"
     Then I should see "5.0"

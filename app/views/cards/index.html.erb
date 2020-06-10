@@ -42,7 +42,9 @@
                     <i class="fa fa-users fa-lg ml-3" style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></i>
                     </li>
                   <% end%>
-                
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
+                    </li>
                  <li>
                   <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
                 </li>
@@ -89,6 +91,9 @@
                     <i class="fa fa-users fa-lg ml-3" style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></i>
                     </li>
                   <% end%>
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
+                    </li>
                   <li>
                   <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
                 </li>

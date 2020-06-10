@@ -36,11 +36,18 @@
                   <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
                 </ul>
                 </li>
-                  <% if current_user && current_user.admin %>
-                    <li>
-                    <i class="fa fa-users fa-lg ml-3" style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></i>
+                  <% if current_user && current_user.admin %> 
+                    <li data-toggle="collapse" data-target="#service2" class="collapsed">
+                      <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
+                 
+                     <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
+                      <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
+                     </ul>
                     </li>
-                  <% end%>
+                <% end%>
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
                   <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
                     </li>
@@ -85,11 +92,18 @@
                   <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
                 </ul>
                 </li>
-                <% if current_user && current_user.admin %>
-                    <li>
-                    <i class="fa fa-users fa-lg ml-3" style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></i>
+                <% if current_user && current_user.admin %> 
+                    <li data-toggle="collapse" data-target="#service2" class="collapsed">
+                      <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
+                 
+                     <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
+                      <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
+                     </ul>
                     </li>
-                  <% end%>
+                <% end%>
                   <li data-toggle="collapse" data-target="#new" class="collapsed">
                   <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
                     </li>

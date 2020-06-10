@@ -4,6 +4,120 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body style="background-color:#333;">
+
+<!-- INIZIO MENU-->
+<div class="nav-side-menu d-block d-sm-none">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse"  class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                   <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
+                 
+                <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
+                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
+                  <li style="list-style: none;">Analisi Ricette</li>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
+
+                </ul>
+                </li>
+                  
+                <% if current_user && current_user.admin %> 
+                    <li data-toggle="collapse" data-target="#service2" class="collapsed">
+                      <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
+                 
+                     <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
+                      <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
+                     </ul>
+                    </li>
+                <% end%>
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
+                    </li>
+                 <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+</div>
+<!-- menu -->
+
+<div class="container-fluid">
+<div class="row ">
+<div class="col-2 p-0 d-none d-sm-block ">
+<div class="nav-side-menu">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse"  class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
+                 
+                <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
+                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
+                </ul>
+                </li>
+
+                  <% if current_user && current_user.admin %> 
+                    <li data-toggle="collapse" data-target="#service2" class="collapsed">
+                      <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
+                 
+                     <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
+                      <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
+                     </ul>
+                    </li>
+                <% end%>
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
+                    </li>
+                  <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+
+</div>
+<!-- fine menu-->
 <div class="container">
     <div class="row"><div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">

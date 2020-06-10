@@ -17,9 +17,17 @@ Rails.application.routes.draw do
 
   get 'profiles/myprofile', :to => 'profiles#myprofile'
   get 'profiles/infosviluppatori', :to => 'profiles#infosviluppatori'
+  
   get 'profiles/aggimp', :to => 'profiles#aggimp'
+  get 'profiles/rimimp', :to => 'profiles#rimimp'
+  get 'profiles/listimp', :to => 'profiles#listimp', :controllers => "aggimp#lista"
+  get 'profiles/bannauser', :to => 'profiles#bannauser'
+  get 'profiles/success', :to => 'profiles#success'
+
   post 'profiles/aggimp' => "aggimp#aggiungi"
-  post 'profiles/aggimp' => "aggimp#leva"
+  post 'profiles/rimimp' => "aggimp#rimuovi"
+  post 'profiles/bannauser' => "aggimp#banna"
+  #get 'profiles/listimp' => "aggimp#lista"
 
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 

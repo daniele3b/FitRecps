@@ -25,6 +25,13 @@ class AggimpController < ApplicationController
         redirect_to '/profiles/success'
     end
 
+    def rimuovispecificato
+        @user = User.find_by(:id => params[:user_id])
+        @user.employee = false
+        @user.save
+        redirect_to '/profiles/success'
+    end
+
     def banna
         @user = User.find_by(:email => params[:email])
         User.delete(@user.id)

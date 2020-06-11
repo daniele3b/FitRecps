@@ -44,7 +44,6 @@
                      <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
                       <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
                       <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
-                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
                       <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
                      </ul>
                     </li>
@@ -101,7 +100,6 @@
                      <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
                       <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
                       <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
-                      <li style="list-style: none;"><%= link_to( "Rimuovi Impiegato",profiles_rimimp_path)  %></li>
                       <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
                      </ul>
                     </li>
@@ -125,15 +123,36 @@
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
 <div class="container">
-        <table class="table w-75  mt-2 ">                         
+        <h1> Lista Impiegati </h1>
+        <table class="table w-75  mt-2 ">  
+
+            <thead class="thead-light" style="padding:0;
+              font-size: 15px;
+              position: sticky; top: 0;
+              overflow-y: auto; 
+              border:  1 grey;">
+                <tr>
+                  <th scope="col">Email</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Cognome</th>
+                  <th scope="col">Elimina</th>
+                <th>
+                </tr>
+              </thead>
+
+
             <tbody  >
-              <% listamitutto.each do |card| %>      
+              <% listamitutto.each do |user| %>      
                 <tr class="bg-light">
-                <td><%= card.email %></td> 
-                <td><%= card.nome %></td>  
+                <td><%= user.email %></td> 
+                <td><%= user.nome %></td>  
+                <td><%= user.cognome %></td>  
+                <td><%= button_to '-', {:controller => "aggimp", :action => "rimuovispecificato", :user_id => user.id} , :method=>:post  %></td>
               <% end %>
             </tbody>                     
             </table> 
+
+            <%= link_to 'Aggiungi impiegato', 'aggimp' %>
 </div>
         </div>
       </div>

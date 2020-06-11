@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'profiles/aggimp' => "aggimp#aggiungi"
   post 'profiles/rimimp' => "aggimp#rimuovi"
   post 'profiles/bannauser' => "aggimp#banna"
+  post 'profiles/listimp' => "aggimp#rimuovispecificato"
 
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 

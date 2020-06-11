@@ -1,5 +1,7 @@
 class AggimpController < ApplicationController
     
+    helper_method :lista
+
     def index
         @users= User.all
     end
@@ -13,7 +15,8 @@ class AggimpController < ApplicationController
 
     def lista
         @message ="uigo"
-      end
+        redirect_to '/profiles/success'
+    end
 
     def rimuovi
         @user = User.find_by(:email => params[:email])

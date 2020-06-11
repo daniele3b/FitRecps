@@ -127,8 +127,11 @@
 <div class="container">
         <table class="table w-75  mt-2 ">                         
             <tbody  >
-              
-              <%=@message%>
+              <% listamitutto.each do |card| %>      
+                <tr class="bg-light">
+                <td><%= card.email %></td> 
+                <td><%= card.nome %></td>  
+              <% end %>
             </tbody>                     
             </table> 
 </div>

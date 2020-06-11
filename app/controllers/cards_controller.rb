@@ -8,9 +8,7 @@ class CardsController < ApplicationController
         @card=Card.find(params[:id])
 
 
-        @rev=Review.where(cards:params[:id])
-
-        @rev.delete_all
+        
         @card.destroy
 
         redirect_to profiles_mycards_url
@@ -52,7 +50,7 @@ class CardsController < ApplicationController
        @card.interazioni=@val
        @card.save!
        
-       @val=Review.where(cards:params[:id]).average(:valore).to_f
+       @val=Review.where(card_id:params[:id]).average(:valore).to_f
 
     
 

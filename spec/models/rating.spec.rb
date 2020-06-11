@@ -19,7 +19,7 @@ RSpec.describe Recipe, :type => :model do
                 :grassi=>231, :proteine=>123, :fibre=>12312, :sodio=>1214, :video_tutorial=>'sdasf',
                 :user_id=>m1.id, :interazioni=>0)
             recipe.save!
-            rating=Rating.new(:valore=>5.0,:recipes=>recipe.id,:users=>m1.id)
+            rating=Rating.new(:valore=>5.0,:recipe_id=>recipe.id,:user_id=>m1.id)
 
             expect(rating).to be_valid
         end
@@ -38,7 +38,7 @@ RSpec.describe Recipe, :type => :model do
                 :grassi=>231, :proteine=>123, :fibre=>12312, :sodio=>1214, :video_tutorial=>'sdasf',
                 :user_id=>m1.id, :interazioni=>0)
             recipe.save!
-            rating=Rating.new(:recipes=>recipe.id,:users=>m1.id)
+            rating=Rating.new(:recipe_id=>recipe.id,:user_id=>m1.id)
 
             expect(rating).not_to be_valid
         end
@@ -57,7 +57,7 @@ RSpec.describe Recipe, :type => :model do
                 :grassi=>231, :proteine=>123, :fibre=>12312, :sodio=>1214, :video_tutorial=>'sdasf',
                 :user_id=>m1.id, :interazioni=>0)
             recipe.save!
-            rating=Rating.new(:valore=>5.0,:recipes=>recipe.id)
+            rating=Rating.new(:valore=>5.0,:recipe_id=>recipe.id)
 
             expect(rating).not_to be_valid
         end
@@ -76,7 +76,7 @@ RSpec.describe Recipe, :type => :model do
                 :grassi=>231, :proteine=>123, :fibre=>12312, :sodio=>1214, :video_tutorial=>'sdasf',
                 :user_id=>m1.id, :interazioni=>0)
             recipe.save!
-            rating=Rating.new(:recipes=>recipe.id,:users=>m1.id)
+            rating=Rating.new(:recipe_id=>recipe.id,:user_id=>m1.id)
 
             expect(rating).not_to be_valid
         end

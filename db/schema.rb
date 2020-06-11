@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_191149) do
+ActiveRecord::Schema.define(version: 2020_06_11_200701) do
 
   create_table "cards", force: :cascade do |t|
     t.string "idf"
@@ -30,10 +30,12 @@ ActiveRecord::Schema.define(version: 2020_06_11_191149) do
 
   create_table "ratings", force: :cascade do |t|
     t.decimal "valore"
-    t.string "recipes"
-    t.string "users"
+    t.string "recipe_id"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ratings_on_recipe_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_191149) do
     t.float "sodio"
     t.float "grassi"
     t.text "ingredienti"
+    t.string "foto"
     t.text "procedimento"
     t.string "user_id"
     t.datetime "created_at", null: false
@@ -67,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_191149) do
     t.string "anidride_solforosa_e_solfiti", default: "0"
     t.string "uova_e_derivati", default: "0"
     t.integer "interazioni"
-    t.string "foto"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

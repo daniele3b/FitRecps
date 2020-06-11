@@ -73,7 +73,7 @@ class RecipesController < ApplicationController
         @recipe.interazioni = @val
         @recipe.save!
         
-        @rating = Rating.where(recipes:params[:id]).average(:valore).to_f
+        @rating = Rating.where(recipe_id:params[:id]).average(:valore).to_f
 
     end
 

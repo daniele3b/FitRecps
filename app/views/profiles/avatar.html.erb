@@ -5,8 +5,7 @@
 </head>
 <body style="background-color:#333;">
 
-
-
+<!-- INIZIO MENU-->
 <div class="nav-side-menu d-block d-sm-none">
     <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
     <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
@@ -34,9 +33,11 @@
                   <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
                   <li style="list-style: none;">Analisi Ricette</li>
                   <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
+
                 </ul>
                 </li>
-                  <% if current_user && current_user.admin %> 
+                  
+                <% if current_user && current_user.admin %> 
                     <li data-toggle="collapse" data-target="#service2" class="collapsed">
                       <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
                  
@@ -47,7 +48,7 @@
                      </ul>
                     </li>
                 <% end%>
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
                   <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
                     </li>
                  <li>
@@ -87,11 +88,12 @@
                   <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
                   <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
                   <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
-                  <li style="list-style: none;">Analisi Ricette</li>
-                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)%></li>
+                  <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
                 </ul>
                 </li>
-                <% if current_user && current_user.admin %> 
+
+                  <% if current_user && current_user.admin %> 
                     <li data-toggle="collapse" data-target="#service2" class="collapsed">
                       <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
                  
@@ -114,51 +116,33 @@
 
 </div>
 <!-- fine menu-->
-
-<div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5 " style="border-color:#bd000d;">
+        <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
-                <h2>Il tuo profilo </h2><br>
-                <% if current_user.avatar == nil %>
-                  <%= image_tag ("aaa.jpg"), class: "card-img-top", style: "height:200px;width:200px;" %>
-                <% else %>
-                  <%= image_tag ("aaa.jpg"), class: "card-img-top", style: "height:200px;width:200px;" %>
-                <% end %> <br>
-                   <%= link_to 'Modifica Avatar', 'avatar'%>
-                <% if user_signed_in? %> <br> <br>
-                    Email: <%= current_user.email%> <br>
-                    Nome: <%= current_user.nome%> <br>
-                    Cognome: <%= current_user.cognome%> <br>
-                    Data di nascita: <%= current_user.dataNascita%> <br>
-                    Luogo di nascita: <%= current_user.luogoNascita%> <br>
-                    Sesso: <%= current_user.sesso%> <br>
-                    <%= button_to "Cambia password", registration_path(:user), method: :put %></p>
-                    <%= button_to "Cancella profilo", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-                <% end %>
-          </div>
+           <div class="container">
+
+            <%= form_with :controller => :avatar, :action => :modifica, :html => {multipart => true}, local: true do |form| %>
+
+            <div class="row">
+                <div class="col">
+                    <%= form.file_field :avatar %>
+                </div>
+            </div>
+            <div class="actions">
+                <%= form.submit %>
+            </div>
+            <% end %>
+
+
         </div>
-       </div>
+      </div>
     </div>
-</div>
-
- 
-
-</div>
-</div> <!-- chiudo col-->
- 
-</div> <!-- chiude row-->
-</div><!-- chiude cont-->
-<!-- fine menu-->
-
-
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-

@@ -1,7 +1,77 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body style="background-color:#333;">
+
+<!-- menu -->
+
+<div class="container-fluid">
+<div class="row ">
+<div class="col-2 p-0 d-none d-sm-block ">
+<div class="nav-side-menu">
+    <div class="brand"><h1 style="color:#bd000d;">FitRecps</h1></div>
+    <i class="fa fa-bars fa-2x toggle-btn navbar-toggler pb-4" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li>
+                  <i class="fa fa-dashboard fa-lg ml-3"> Homepage</i> 
+                </li>
+  
+                <li data-toggle="collapse"  class="collapsed">
+                  <i class="fa fa-globe fa-lg ml-3" style="color:white;"><%= link_to "Ricette ", recipes_path %></i> 
+                </li>  
+           
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede ", cards_path %></i>  
+                </li>
+              
+                 <li>    
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
+                 
+                <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
+                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
+                  <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
+                  <li style="list-style: none;">Analisi Ricette</li>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)%></li>
+                </ul>
+                </li>
+                <% if current_user && current_user.admin %> 
+                    <li data-toggle="collapse" data-target="#service2" class="collapsed">
+                      <i class="fa fa-globe fa-lg ml-3">  Gestione Iscritti</i>
+                 
+                     <ul class="sub-menu collapse" id="service2" style="list-style-type: none;">
+                      <li style="list-style: none;"><%= link_to( "Lista Impiegati",profiles_listimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Aggiungi Impiegato",profiles_aggimp_path)  %></li>
+                      <li style="list-style: none;"><%= link_to( "Elimina Utente",profiles_bannauser_path)  %></li>
+                     </ul>
+                    </li>
+                <% end%>
+                  <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
+                    </li>
+                  <li>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                </li>
+            </ul>
+     </div>
+</div>
+
+</div>
+<!-- fine menu-->
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5 " style="border-color:#bd000d;">
+          <div class="card-body" style="text-align:center;">
+
+<h2>Cambio Password</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <!--<%= render "devise/shared/error_messages", resource: resource %>-->
 
   <div class="field">
     <%= f.label :email %><br />
@@ -13,7 +83,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <i>Nuova Password</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
@@ -22,22 +92,31 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <i>Conferma nuova Password</i><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <i>Password Attuale</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Cambia" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to "Torna a Mio Profilo", :back %>
 
-<%= link_to "Back", :back %>
+          </div>
+        </div>
+       </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

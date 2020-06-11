@@ -23,4 +23,8 @@ class ProfilesController < ApplicationController
         @b=Recipe.group(:tipo).sum(:interazioni)
 
     end 
+
+    def avatar
+    
+    end
 end

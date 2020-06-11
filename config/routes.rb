@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :ratings
 
+
   get 'reviews/exist/:id', :to=> 'reviews#exist'
   get 'finestra/:id', :to=> 'cards#visualizzacard'
   get 'profiles/mycards', :to => 'profiles#mycards'
@@ -23,12 +24,13 @@ Rails.application.routes.draw do
   get 'profiles/listimp', :to => 'profiles#listimp'
   get 'profiles/bannauser', :to => 'profiles#bannauser'
   get 'profiles/success', :to => 'profiles#success'
-
+  get 'profiles/avatar', :to => "profiles#avatar"
 
   post 'profiles/aggimp' => "aggimp#aggiungi"
   post 'profiles/rimimp' => "aggimp#rimuovi"
   post 'profiles/bannauser' => "aggimp#banna"
   post 'profiles/listimp' => "aggimp#rimuovispecificato"
+  post 'profiles/avatar' => "avatar#modifica"
 
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 

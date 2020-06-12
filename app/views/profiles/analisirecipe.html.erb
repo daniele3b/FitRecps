@@ -129,13 +129,15 @@
     <tr>
       <th scope="col">Nome</th>
       <th scope="col">Tipo</th>
+      <th scope="col">Interazioni</th>
     </tr>
   </thead>
   <tbody  >
     <% @recipes.each do |recipe| %>      
     <tr class="bg-light">
     <td><%= recipe.nome %></td> 
-    <td><%= recipe.tipo %></td>  
+    <td><%= recipe.tipo %></td> 
+    <td><%= recipe.interazioni %></td>
     </tr>
     <% end %>  
 </tbody>                     

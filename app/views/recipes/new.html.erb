@@ -23,7 +23,7 @@
 
         <div class="field">
             <%= form.label :Nome %>
-            <%= form.text_field :Nome,id:"Nome" %>
+            <%= form.text_field :Nome,id:"Nome",required: true %>
         </div>
 
 
@@ -31,7 +31,7 @@
 
         <div class="field">
             <%= form.label :Tipo %>
-            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'], id:"Tipo" %>
+            <%= form.select :Tipo,  ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Frutta', 'Dolce'], id:"Tipo",required: true %>
         </div>
 
         <!--  ALLERGENI  -->
@@ -114,7 +114,7 @@
 
         <div class="field mt-2">
             <%= form.label :Ingredienti %>
-            <%= form.text_area :Ingredienti,id:"Ingredienti" %>
+            <%= form.text_area :Ingredienti,id:"Ingredienti",required: true %>
         </div>
 
         <!--  PROCEDIMENTO  -->
@@ -128,22 +128,22 @@
 
         <div class="field" style="margin-left:40px">
             <%= form.label :Energia %>
-            <%= form.number_field :Energia,id:"Energia" %>
+            <%= form.number_field :Energia,id:"Energia",required: true %>
         </div>
 
         <div class="field mt-1" style="margin-left:13px">
             <%= form.label :Carboidrati %>
-            <%= form.number_field :Carboidrati,id:"Carboidrati" %>
+            <%= form.number_field :Carboidrati,id:"Carboidrati",required: true %>
         </div>
 
         <div class="field mt-1" style="margin-left:50px">
             <%= form.label :Grassi %>
-            <%= form.number_field :Grassi,id:"Grassi" %>
+            <%= form.number_field :Grassi,id:"Grassi",required: true %>
         </div>
 
         <div class="field mt-1" style="margin-left:33px">
             <%= form.label :Proteine %>
-            <%= form.number_field :Proteine,id:"Proteine" %>
+            <%= form.number_field :Proteine,id:"Proteine",required: true %>
         </div>
 
         <div class="field mt-1" style="margin-left:58px">

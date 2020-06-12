@@ -6,7 +6,5 @@ class RegistrationsController < Devise::RegistrationsController
    def configure_sign_in_params
      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nome, :cognome, :luogoNascita, :dataNascita, :sesso, :email, :password, :cf, :avatar) }
    end
-
-
-  
+   
   end 

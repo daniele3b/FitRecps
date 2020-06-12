@@ -24,35 +24,35 @@
               <div class="row">
                 <div class="col">
                   <%= f.label :nome, size: 10 %><br />
-                  <%= f.text_field :nome, autofocus: true, autocomplete: "nome" %>
+                  <%= f.text_field :nome, autofocus: true, autocomplete: "nome", required: true %>
                 </div>
 
                 <div class="col">
                   <%= f.label :cognome, size: '10' %><br />
-                  <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome" %>
+                  <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome", required: true %>
                 </div>
               </div>
 
               <div class="field">
                 <%= f.label :data_Di_Nascita %><br />
-                <%= f.date_select :dataNascita, order: [:day, :month, :year], prompt: { day: 'Giorno', month: 'Mese', year: 'Anno' }, start_year: Date.today.year, end_year: Date.today.year - 100 %>
+                <%= f.date_select :dataNascita, order: [:day, :month, :year], prompt: { day: 'Giorno', month: 'Mese', year: 'Anno' }, required: true, start_year: Date.today.year, end_year: Date.today.year - 100 %>
               </div>
               
               
                 <div class="col">
                   <%= f.label :luogo_Di_Nascita %><br />
-                  <%= f.text_field :luogoNascita, autofocus: true, autocomplete: "luogoNascita" %>
+                  <%= f.text_field :luogoNascita, autofocus: true, autocomplete: "luogoNascita", required: true %>
                 </div>
 
                 <div class="col">
                   <%= f.label :sesso %><br />
-                  <%= f.select :sesso, ["Maschio","Femmina"]%>
+                  <%= f.select :sesso, ["Maschio","Femmina"], required: true%>
                 </div>
               
 
               <div class="field">
                 <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"email" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",id:"email", required: true %>
               </div>
 
               
@@ -62,12 +62,12 @@
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
-                <%= f.password_field :password, autocomplete: "new-password",id:"password" %>
+                <%= f.password_field :password, autocomplete: "new-password",id:"password", required: true %>
               </div>
 
               <div class="col">
                 <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password",id:"password_confirmation" %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password",id:"password_confirmation", required: true %>
               </div>
             
 

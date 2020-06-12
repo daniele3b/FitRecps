@@ -16,7 +16,7 @@
         <div class="card card-signin my-5 " style="border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2  >Inserisci un rating alla ricetta </h2>
-          <%= @recipeid %>
+
         <div class="container">
         <%= form_with url: "/ratings", method: "post" ,model: @rating, local: true do |form| %>
         <%= form.hidden_field :recipeid, :value => @recipeid %>

@@ -24,7 +24,7 @@
         <%= form.label :path %>
         </div>
          <div class="col">
-        <%= form.file_field :path ,id: "path" %>
+        <%= form.file_field :path ,id: "path",required: true %>
         </div>
         </div>
 
@@ -33,7 +33,7 @@
         <%= form.label :durata %>
         </div>
         <div class="col">
-        <%= form.text_field :durata,id: "durata"  %>
+        <%= form.text_field :durata,id: "durata" ,required: true %>
         </div>
         </div>
 
@@ -42,7 +42,7 @@
         <%= form.label :zona %>
         </div>
         <div class="col">
-        <%= form.text_field :zona ,id: "zona" %>
+        <%= form.text_field :zona ,id: "zona",required: true %>
         </div>
         </div>
 
@@ -51,7 +51,7 @@
         <%= form.label :categoria%>
         </div>
         <div class="col">
-        <%= form.select :categoria,  ['crossfit','body building','calisthenics','sala pesi'] ,id: "categoria" %>
+        <%= form.select :categoria,  ['crossfit','body building','calisthenics','sala pesi'] ,id: "categoria",required: true %>
         </div>
         </div>
 
@@ -60,7 +60,7 @@
           <%= form.label :esercizi %>
         </div>
         <div class="col">
-          <%= form.text_area :esercizi,id: "esercizi"  %>
+          <%= form.text_area :esercizi,id: "esercizi" ,required: true %>
         </div>
         </div>
 
@@ -69,7 +69,7 @@
           <%= form.label :energia%>
           </div>
           <div class="col">
-          <%= form.number_field :energia,id: "energia"  %>
+          <%= form.number_field :energia,id: "energia" ,required: true %>
           </div>
         </div>
 
@@ -78,7 +78,7 @@
           <%= form.label :tutorial %>
         </div>
         <div class="col">
-          <%= form.text_field :tutorial ,id: "tutorial" %>
+          <%= form.text_field :tutorial ,id: "tutorial",required: true %>
         </div>
         </div>
 

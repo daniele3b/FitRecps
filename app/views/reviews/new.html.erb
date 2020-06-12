@@ -16,7 +16,6 @@
         <div class="card card-signin my-5 " style="border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
           <h2  >Inserisci una valutazione alla scheda </h2>
-          <%= @c %>
         <div class="container">
         <%= form_with url: "/reviews", method: "post" ,model: @review, local: true do |form| %>
         <%= form.hidden_field :s, :value => @c %>

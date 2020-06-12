@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
   #:controllers => { :omniauth_callbacks => 'users/omniauth_callbacks', :registrations => "registrations" }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cards
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'profiles/myprofile', :to => 'profiles#myprofile'
   get 'profiles/infosviluppatori', :to => 'profiles#infosviluppatori'
+  get 'profiles/modificainfo', :to => 'profiles#modificainfo'
   
   get 'profiles/aggimp', :to => 'profiles#aggimp'
   get 'profiles/rimimp', :to => 'profiles#rimimp'
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
   post 'profiles/bannauser' => "aggimp#banna"
   post 'profiles/listimp' => "aggimp#rimuovispecificato"
   post 'profiles/avatar' => "avatar#modifica"
+  post 'profiles/modificainfo' => "aggimp#modificainfo"
+  delete 'profiles/avatar' => "avatar#leva"
 
   get 'profiles/analisi/cards', :to => 'profiles#analisicard'
 

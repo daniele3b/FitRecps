@@ -122,8 +122,8 @@
         <div class="card card-signin my-5 text-white" style="background-color:rgba(51, 51, 51, 0.4);border-color:#bd000d;">
           <div class="card-body" style="text-align:center;">
            <div class="container">
-
-            <%= form_with :controller => :avatar, :action => :modifica, :html => {multipart => true}, local: true do |form| %>
+            <h1>Carica Avatar</h1>
+            <%= form_with :controller => :avatar, :action => :modifica, method: :post, html: { multipart: true }, local: true do |form| %>
 
             <div class="row">
                 <div class="col">
@@ -131,10 +131,14 @@
                 </div>
             </div>
             <div class="actions">
-                <%= form.submit %>
+                <%= form.submit  "Carica"%>
             </div>
             <% end %>
-
+            <hr class="my-4">
+            <h1>Elimina Avatar</h1>
+            <%= button_to 'Elimina Avatar', {:controller => "avatar", :action => "leva"} , :method=>:delete  %>
+            <hr class="my-4">
+            <%= link_to "Torna a Mio Profilo", :back %>
 
         </div>
       </div>

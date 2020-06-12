@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  attr_accessor :avatar
+  mount_uploader :avatar, AvatarUploader
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

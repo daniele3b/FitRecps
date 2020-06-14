@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
      before_action :authenticate_user!
 
+     before_action :configure_sign_in_params, only: [:create]
+
+     protected
+
+     def configure_sign_in_params
+          devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:nome, :cognome, :luogoNascita, :dataNascita, :sesso, :email, :password, :cf, :avatar) }
+     end
+
      #Se vuoi levare autorizzazioni commenta le cose qui sotto
      #helper_method: current_user
      #

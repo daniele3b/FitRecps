@@ -128,7 +128,9 @@
                     Cognome: <%= current_user.cognome%> <br>
                     Data di nascita: <%= current_user.dataNascita%> <br>
                     Luogo di nascita: <%= current_user.luogoNascita%> <br>
-                    Sesso: <%= current_user.sesso%> <br> <br>
+                    Sesso: <%= current_user.sesso%> <br> 
+                    Codice Fiscale: <%= current_user.cf%> <br ><br>
+
                     <%= button_to 'Modifica Informazioni', profiles_modificainfo_path, method: :get %> <br>
                     <%= button_to "Cambia password", registration_path(:user), method: :put %> <br>
                     <%= button_to "Cancella profilo", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete %>

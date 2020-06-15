@@ -24,29 +24,29 @@
               <div class="row">
                 <div class="col">
                   <%= f.label :nome, size: 10 %><br />
-                  <%= f.text_field :nome, autofocus: true, autocomplete: "nome", required: true %>
+                  <%= f.text_field :nome, autofocus: true, autocomplete: "nome", id:"nome", required: true %>
                 </div>
 
                 <div class="col">
                   <%= f.label :cognome, size: '10' %><br />
-                  <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome", required: true %>
+                  <%= f.text_field :cognome, autofocus: true, autocomplete: "cognome", id:"cognome", required: true %>
                 </div>
               </div>
 
               <div class="field">
                 <%= f.label :data_Di_Nascita %><br />
-                <%= f.date_select :dataNascita, order: [:day, :month, :year], prompt: { day: 'Giorno', month: 'Mese', year: 'Anno' }, required: true, start_year: Date.today.year, end_year: Date.today.year - 100 %>
+                <%= f.date_select :dataNascita, order: [:day, :month, :year], id:"dataNascita", prompt: { day: 'Giorno', month: 'Mese', year: 'Anno' }, required: true, start_year: Date.today.year, end_year: Date.today.year - 100 %>
               </div>
               
               
                 <div class="col">
                   <%= f.label :luogo_Di_Nascita %><br />
-                  <%= f.text_field :luogoNascita, autofocus: true, autocomplete: "luogoNascita", required: true %>
+                  <%= f.text_field :luogoNascita, autofocus: true, autocomplete: "luogoNascita", id:"luogoNascita", required: true %>
                 </div>
 
                 <div class="col">
                   <%= f.label :sesso %><br />
-                  <%= f.select :sesso, ["---","Maschio","Femmina"], required: true%>
+                  <%= f.select :sesso, ["---","Maschio","Femmina"], id:"sesso", required: true%>
                 </div>
               
 

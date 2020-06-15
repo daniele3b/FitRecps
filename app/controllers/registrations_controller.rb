@@ -41,17 +41,40 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
     #CODICE FISCALE
-    #@user = User.find_by(:email => current_user.email) 
     #@user.cf ='franco'
     #@user.save
     @user = User.find_by(:email => current_user.email)   
     #@user.cf ='franco'
     require 'net/http'
-      @nome = 'Mario'
-      @cognome = 'Cavaiola'
-      @comunenascita = 'Terracina'
-      @datanascita = '29-11-1998'
-      @sesso = 'm'
+      @nome = current_user.nome
+      @cognome = current_user.cognome
+      @comunenascita = current_user.luogoNascita
+      
+      @datanascita = current_user.dataNascita
+      @datanascita.slice! "{3=>"
+      @giorno = @datanascita[0, @datanascita.index(',')]
+      @datanascita.slice! @datanascita[0, @datanascita.index('>')+1]
+      @mese = @datanascita[0, @datanascita.index(',')]
+      @datanascita.slice! @datanascita[0, @datanascita.index('>')+1]
+      @anno = @datanascita[0, 4]
+
+      if @giorno.length ==1
+        @giorno = '0'+@giorno
+      end
+
+      if @mese.length ==1
+        @mese = '0'+@mese
+      end
+      @datanascita = @giorno+'-'+@mese+'-'+@anno
+      @user.dataNascita = @datanascita
+      @user.save
+      
+      if current_user.sesso=='Maschio'
+        @sesso='m'
+      elsif current_user.sesso=='Femmina'
+        @sesso='f'
+      end
+     
       @uri ='http://webservices.dotnethell.it/codicefiscale.asmx/CalcolaCodiceFiscale?Nome='+@nome+'&Cognome='+@cognome+'&ComuneNascita='+@comunenascita+'&DataNascita='+@datanascita+'&Sesso='+@sesso 
       url = URI.parse(@uri)
       req = Net::HTTP::Get.new(url.to_s)

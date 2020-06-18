@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Add a new card if is an employee or admin', type: :feature do
   Card.delete_all
   User.delete_all
-  m1 = User.new( :id=>'1',:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'd@gmail.com', :password => '12345678')
+  m1 = User.new( :id=>'1',:admin=>1,:employee=>1,:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'd@gmail.com', :password => '12345678')
   m1.save!
 
   scenario 'Add a new card' do

@@ -65,6 +65,14 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+And /I get promoted/ do 
+  user = User.where(:email=>"federeristheway@gmail.com")
+  user[0].admin=true 
+  user[0].employee=true 
+  user[0].save!
+  
+
+end
 # Use this to fill in an entire form with data from a table. Example:
 #
 #   When I fill in the following:

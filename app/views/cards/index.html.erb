@@ -20,7 +20,7 @@
                 </li>  
            
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <i class="fa fa-car fa-lg ml-3"><%= link_to "Schede", cards_path %></i>  
+                  <i class="fa fa-car fa-lg ml-3"><%= link_to "schede", cards_path %></i>  
                 </li>
               
                  <li>    
@@ -29,8 +29,8 @@
                  
                 <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
                   <% if current_user && current_user.employee%> 
-                    <li style="list-style: none;"><%= link_to( "Le mie Schede",profiles_mycards_path)  %></li>
-                    <li style="list-style: none;"><%= link_to( "Le mie Ricette",profiles_myrecipes_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
                   <% end%>
                   <% if current_user && current_user.admin %> 
                     <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
@@ -55,7 +55,7 @@
                   <i class="fa fa-car fa-lg ml-3"><%= link_to "Info Sviluppatori", profiles_infosviluppatori_path %></i>  
                     </li>
                  <li>
-                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "Logout",destroy_user_session_path,method: :delete)  %></i>
+                  <i class="fa fa-users fa-lg ml-3"><%= link_to( "ogout",destroy_user_session_path,method: :delete)  %></i>
                 </li>
             </ul>
      </div>

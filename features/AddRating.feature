@@ -17,7 +17,14 @@ Scenario: Add a rating to a recipe
     And I fill in "password_confirmation" with "roger100x100"
     And I press "Entra in FitRecps!"
     Then I should be on the FitRecps cards page
-    When I follow "Le mie ricette"
+    When I follow "Logout"
+    Then I should be on the FitRecps login page
+    When I fill in "email" with "federeristheway@gmail.com"
+    And I fill in "password" with "roger100x100"
+    And I get promoted
+    And I press "Log in"
+    Then I should be on the FitRecps cards page
+    When I follow "Le mie Ricette"
     Then I should be on the FitRecps my recipes page
     When I follow "Aggiungi"
     Then I should be on the Fitrecps add recipes page

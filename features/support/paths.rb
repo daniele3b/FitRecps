@@ -13,6 +13,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+
+
     when /^the home\s?page$/
       '/'
 
@@ -46,7 +48,9 @@ module NavigationHelpers
     when /^the Fitrecps filter recipe page/
       '/recipes/filter/nome'
     when /^the FitRecps login page/
-      '/users/sign_in/'
+      '/users/sign_in'
+
+
 
 
     # Add more mappings here.

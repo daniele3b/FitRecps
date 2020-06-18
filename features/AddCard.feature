@@ -3,25 +3,9 @@ Feature: Employee can add a card
 
 Scenario: Insert a new Card
     Given I am on the FitRecps login page
-    When I follow "Registrati"
-    Then I should be on the FitRecps registration page
-    When I fill in "nome" with "Ivan"
-    And I fill in "cognome" with "Giacomoni"
-    And I select "31" from "user_dataNascita_3i"
-    And I select "May" from "user_dataNascita_2i"
-    And I select "1998" from "user_dataNascita_1i"
-    And I fill in "luogoNascita" with "Latina"
-    And I select "Maschio" from "user_sesso"
+    When Employee is created
     And I fill in "email" with "federeristheway@gmail.com"
     And I fill in "password" with "roger100x100"
-    And I fill in "password_confirmation" with "roger100x100"
-    And I press "Entra in FitRecps!"
-    Then I should be on the FitRecps cards page
-    When I follow "Logout"
-    Then I should be on the FitRecps login page
-    When I fill in "email" with "federeristheway@gmail.com"
-    And I fill in "password" with "roger100x100"
-    And I get promoted
     And I press "Log in"
     Then I should be on the FitRecps cards page
     When I follow "Le mie Schede"

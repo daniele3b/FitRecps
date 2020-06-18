@@ -65,6 +65,11 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+When /Employee is created/ do 
+  m1 = User.new( :id=>'1',:admin=>1,:employee=>1,:nome=>'bho',:cognome=>'bho9',:luogoNascita=>'ciao',:dataNascita=>'1998/12/2',:sesso=>'m',:email => 'federeristheway@gmail.com', :password => 'roger100x100')
+  m1.save!
+end
+
 And /I get promoted/ do 
   user = User.where(:email=>"federeristheway@gmail.com")
   user[0].admin=true 

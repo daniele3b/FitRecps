@@ -26,11 +26,15 @@
                 <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
                  
                 <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
-                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
-                  <li style="list-style: none;">Informazioni</li>
+                  <% if current_user && current_user.employee%> 
+                    <li style="list-style: none;"><%= link_to( "Le mie Schede",profiles_mycards_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Le mie Ricette",profiles_myrecipes_path)  %></li>
+                  <% end%>
+                  <% if current_user && current_user.admin %> 
+                    <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
+                  <% end%>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
                 </ul>
                 </li>
                   
@@ -82,11 +86,15 @@
                 <i class="fa fa-globe fa-lg ml-3">  Profilo</i>
                  
                 <ul class="sub-menu collapse" id="service" style="list-style-type: none;">
-                  <li style="list-style: none;"><%= link_to( "Le mie schede",profiles_mycards_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Le mie ricette",profiles_myrecipes_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
-                  <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
-                  <li style="list-style: none;">Informazioni</li>
+                  <% if current_user && current_user.employee%> 
+                    <li style="list-style: none;"><%= link_to( "Le mie Schede",profiles_mycards_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Le mie Ricette",profiles_myrecipes_path)  %></li>
+                  <% end%>
+                  <% if current_user && current_user.admin %> 
+                    <li style="list-style: none;"><%= link_to( "Analisi schede",profiles_analisi_cards_path)  %></li>
+                    <li style="list-style: none;"><%= link_to( "Analisi ricette",profiles_analisi_recipes_path)  %></li>
+                  <% end%>
+                  <li style="list-style: none;"><%= link_to( "Modifica profilo",profiles_myprofile_path)  %></li>
                 </ul>
                 </li>
                 <% if current_user && current_user.admin %> 
